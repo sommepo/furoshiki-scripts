@@ -124,7 +124,10 @@ the game in lower case with hyphens, as its usual romanised or English name (`si
 
 - the header lines (`-- reader: title`, `reads`, `version`, and `no hooks` when it uses none);
 - a comment on how the game keeps its text and what is not covered;
-- the build check: `python tools/agent.py lua reader.build_id`, and `error(...)` on any other;
+- the build check: `python tools/agent.py lua reader.build_id`, and `error(...)` on any other.
+  On the 3DS and the DS `reader.build_id` is nil: compare three or four instruction words of
+  the game's code that the script depends on with `mem.u32`, as the scripts in `games/3ds/`
+  do, and `error(...)` when one differs;
 - the reading itself: on the PS2 and the Dreamcast from `reader.on_frame` only; elsewhere a
   frame callback or a hook. Emit a line once, when the game shows it, never earlier; the
   speaker in `speaker`; choices with `channel = "choice"`;

@@ -14,6 +14,11 @@ processor a hook sees, the space `reader.layout` works in, and what the games te
 | PS Vita | `games/vita` | `PCSG00488` | yes | ARM, as the 3DS's; the program's addresses are `reader.base` plus an offset | 960×544 |
 | Switch | `games/switch` | `0100F160092D2000` (the title ID) | yes | ARM64: `x0`…`x30`, `w0`…`w30` for their low halves, `sp lr pc`; the program's addresses are `reader.base` plus an offset | 1280×720 |
 
+`reader.build_id` names the game's build on every console but the **3DS and the DS**, where
+it is nil: a script there binds itself to its build by checking a few instruction words of the
+game's code (`mem.u32(address) ~= word`), as `games/3ds/` does. `tools/check.py` fails a 3DS or
+DS script that uses `reader.build_id`.
+
 All of them are little-endian: `mem.u16` and `mem.u32` read the game's numbers as they are.
 
 ## Text encodings

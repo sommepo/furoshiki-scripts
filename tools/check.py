@@ -47,10 +47,17 @@ def code_of(source):
     return re.sub(r"--[^\n]*", "", source)
 
 
-def reading_problems(source):
+# Consoles whose core gives no reader.build_id (it is nil): their scripts check instruction words.
+NO_BUILD_ID = {"3ds", "nds"}
+
+
+def reading_problems(source, console):
     """What makes a script read nothing, or promise what it does not do: each one fails."""
     code = code_of(source)
     out = []
+    if console in NO_BUILD_ID and "reader.build_id" in code:
+        out.append("uses reader.build_id, which is nil on this console, so the script would never "
+                   "load: check a few instruction words of the game's code instead (docs/consoles.md)")
     if "reader.emit" not in code:
         out.append("never reports any text (reader.emit): it would read nothing in the game")
     if not CALLBACK.search(code):
@@ -72,7 +79,8 @@ def reading_warnings(source):
     if unused:
         out.append(f"defines functions it never calls ({', '.join(unused)}): finish them or take them out")
     if "error(" not in code:
-        out.append("has no build check (an error(...) when reader.build_id is not the build it was written for)")
+        out.append("has no build check (an error(...) when the game is not the build it was written "
+                   "for: reader.build_id, or instruction words on the 3DS and DS)")
     return out
 
 
@@ -158,7 +166,7 @@ def main():
                     warnings.append((where, "never says where its text is on screen (reader.layout), so the "
                                      "words cannot be pointed at on the game's picture; give a layout, or "
                                      "say why there is none in a `-- reader: no layout <why>` line"))
-                problems.extend(f"{where}: {problem}" for problem in reading_problems(source))
+                problems.extend(f"{where}: {problem}" for problem in reading_problems(source, console.name))
                 warnings.extend((where, warning) for warning in reading_warnings(source))
                 wanted.update(f"{game_id}.{name}" for name in DATA.findall(source))
                 scripts += 1

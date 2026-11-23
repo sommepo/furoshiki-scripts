@@ -3,6 +3,16 @@
   "system": "ps2",
   "scripts": [
     {
+      "id": "SLPM-55281",
+      "title": "CLOCK ZERO 〜終焉の一秒〜 (Clock Zero: Shuuen no Ichibyou)",
+      "reads": "The message window: narration and dialogue with speakers, and choices",
+      "version": "SLPM-55281, disc version 1.01",
+      "api": 1,
+      "file": "SLPM-55281.lua",
+      "size": 10041,
+      "sha256": "747dfd24f921cec8b7813c0ba6649e201afd3d6c8b5f9e0102eaf94daff29546"
+    },
+    {
       "id": "SLPM-65051",
       "title": "サイレントヒル2",
       "reads": "The text at the bottom of the picture: what is said in scenes and what is told when something is looked at",
@@ -179,6 +189,16 @@
         "size": 10748,
         "sha256": "a352b27a363461d1b9690bb18be81de9ff237a003b5b269e69955859f8251185"
       }
+    },
+    {
+      "id": "SLPM-66512",
+      "title": "Fate/stay night [Realta Nua] (Extra Edition)",
+      "reads": "The story's narration and dialogue with furigana and layout geometry, line by line as it is presented",
+      "version": "SLPM-66512, disc version 1.03",
+      "api": 1,
+      "file": "SLPM-66512.lua",
+      "size": 7149,
+      "sha256": "27578b5360ce8e75463b6120d3c6d23f4e2b475574dd988f78f421093fb2b544"
     },
     {
       "id": "SLPM-66913",

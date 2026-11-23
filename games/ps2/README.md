@@ -1,15 +1,17 @@
 # PlayStation 2
 
-19 games. Made by tools/build-lists.py from the scripts' header lines.
+21 games. Made by tools/build-lists.py from the scripts' header lines.
 
 | Folder | Title | ID | What is read |
 | --- | --- | --- | --- |
 | [amagami](amagami/) | アマガミ | [SLPS-25918](amagami/SLPS-25918.lua) | The message window's text with furigana, each message when it begins, and choices |
 | [clannad](clannad/) | CLANNAD | [SLPM-66302](clannad/SLPM-66302.lua) | The story's text with speakers, each message as it comes up, and choices; finished routes can be marked |
+| [clock-zero](clock-zero/) | CLOCK ZERO 〜終焉の一秒〜 (Clock Zero: Shuuen no Ichibyou) | [SLPM-55281](clock-zero/SLPM-55281.lua) | The message window: narration and dialogue with speakers, and choices |
 | [digital-devil-saga](digital-devil-saga/) | DIGITAL DEVIL SAGA アバタール・チューナー | [SLPM-65597](digital-devil-saga/SLPM-65597.lua) | The text the game lays out in rows: what is said in scenes and in message windows, each when it comes up |
 | [dragon-quest-v](dragon-quest-v/) | ドラゴンクエストV 天空の花嫁 | [SLPM-65555](dragon-quest-v/SLPM-65555.lua) | The message window: what is said and told, a speaker's lines as they have come up in full |
 | [eve-burst-error-plus](eve-burst-error-plus/) | EVE burst error PLUS | [SLPM-65320](eve-burst-error-plus/SLPM-65320.lua) | The message window: what is said and told, part by part as it comes up in full |
 | [ever17](ever17/) | Ever17 -the out of infinity- Premium Edition | [SLPM-65421](ever17/SLPM-65421.lua) | The story's text with speakers, each message as it has come up in full, and choices |
+| [fate-stay-night-realta-nua](fate-stay-night-realta-nua/) | Fate/stay night [Realta Nua] (Extra Edition) | [SLPM-66512](fate-stay-night-realta-nua/SLPM-66512.lua) | The story's narration and dialogue with furigana and layout geometry, line by line as it is presented |
 | [final-fantasy-x](final-fantasy-x/) | ファイナルファンタジーX インターナショナル | [SLPS-25088](final-fantasy-x/SLPS-25088.lua) | What the message windows show (speech with its speaker, subtitles, notices) once typed out, and choices |
 | [higurashi-matsuri-kakera-asobi](higurashi-matsuri-kakera-asobi/) | ひぐらしのなく頃に祭 カケラ遊び (Higurashi no Naku Koro ni Matsuri: Kakera Asobi) | [SLPM-66913](higurashi-matsuri-kakera-asobi/SLPM-66913.lua) | The story's text with speakers and furigana, part by part as it comes up |
 | [kanon](kanon/) | Kanon | [SLPS-20121](kanon/SLPS-20121.lua) | The story's text with speakers, each message once it is typed out, and choices |

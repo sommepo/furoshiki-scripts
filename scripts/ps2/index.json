@@ -10,7 +10,12 @@
       "api": 1,
       "file": "SLPM-55281.lua",
       "size": 10041,
-      "sha256": "747dfd24f921cec8b7813c0ba6649e201afd3d6c8b5f9e0102eaf94daff29546"
+      "sha256": "747dfd24f921cec8b7813c0ba6649e201afd3d6c8b5f9e0102eaf94daff29546",
+      "names": {
+        "file": "names-clock-zero.zip",
+        "size": 4172,
+        "sha256": "ac3b97a3a9da9886717ed57d8a7c870f31a8a8db8e45d3c7d5237ad4daee7f8b"
+      }
     },
     {
       "id": "SLPM-65051",
@@ -198,7 +203,12 @@
       "api": 1,
       "file": "SLPM-66512.lua",
       "size": 7149,
-      "sha256": "27578b5360ce8e75463b6120d3c6d23f4e2b475574dd988f78f421093fb2b544"
+      "sha256": "27578b5360ce8e75463b6120d3c6d23f4e2b475574dd988f78f421093fb2b544",
+      "names": {
+        "file": "names-fate-stay-night-realta-nua.zip",
+        "size": 7585,
+        "sha256": "9703e72befe371f2c3d29fd0c4d37de3ac0e4c21370515acd2f0b2b80c92605f"
+      }
     },
     {
       "id": "SLPM-66913",

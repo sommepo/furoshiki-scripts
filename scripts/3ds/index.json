@@ -31,6 +31,16 @@
         "size": 6232,
         "sha256": "3a592c99c8d1376a2aa5679c6c7b9fb786983bbdeb44bc3f9d33bf6449ab331b"
       }
+    },
+    {
+      "id": "0004000000108800",
+      "title": "逆転裁判123 成歩堂セレクション (Phoenix Wright: Ace Attorney Trilogy)",
+      "reads": "Dialogue in the message window",
+      "version": "The Japanese cartridge release (CTR-P-BHDJ)",
+      "api": 1,
+      "file": "0004000000108800.lua",
+      "size": 5180,
+      "sha256": "ed7c80caee0e16f7cd8ce3efe0809a4f6ee0431f5f243276fe3428347b6da0be"
     }
   ]
 }

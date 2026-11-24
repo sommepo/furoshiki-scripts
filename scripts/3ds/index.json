@@ -40,7 +40,12 @@
       "api": 1,
       "file": "0004000000108800.lua",
       "size": 5180,
-      "sha256": "ed7c80caee0e16f7cd8ce3efe0809a4f6ee0431f5f243276fe3428347b6da0be"
+      "sha256": "ed7c80caee0e16f7cd8ce3efe0809a4f6ee0431f5f243276fe3428347b6da0be",
+      "names": {
+        "file": "names-phoenix-wright-ace-attorney-trilogy.zip",
+        "size": 21176,
+        "sha256": "bd6e2aa23cb363793f5ce83924af94d79a30b04cf6983b18e2c29685eb546011"
+      }
     }
   ]
 }

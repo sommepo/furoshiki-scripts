@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title 魔法少女ノ魔女裁判 (Magical Girl Witch Trials)
--- reader: reads The message window with speakers and furigana
+-- reader: reads Dialogue, speakers, and furigana
 -- reader: version The game as released on Switch (2.0.0a)
 -- 魔法少女ノ魔女裁判 (Magical Girl Witch Trials, 2025), Switch.
 -- Written for main build 1B1734E731DB2C16B234F685FA738349 (the game as released, 2.0.0a).

@@ -1,5 +1,5 @@
 -- reader: title ファイナルファンタジーIX
--- reader: reads The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices
+-- reader: reads Dialogue, speech bubbles, speakers, and choices
 -- reader: version SCPS-45500 (boot program AA3684E8; disc 1 of 4)
 -- reader: audio never
 -- reader: touch press

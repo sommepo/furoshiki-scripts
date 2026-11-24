@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title Kanon
--- reader: reads The story's text with speakers, each message once it is typed out, and choices
+-- reader: reads Dialogue, narration, speakers, and choices
 -- reader: version SLPS-20121, disc version 1.02
 -- reader: touch press
 -- reader: buttons start square up down circle cross

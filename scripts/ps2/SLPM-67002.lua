@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title METAL GEAR SOLID 2 SUBSTANCE
--- reader: reads The codec's conversations and the subtitles of cutscenes and radio calls
+-- reader: reads Codec conversations, radio calls, and cutscene subtitles
 -- reader: version SLPM-67002, disc version 1.01
 -- METAL GEAR SOLID 2 SUBSTANCE (Konami, PS2, 2002), SLPM-67002. Program CED0851A.
 --

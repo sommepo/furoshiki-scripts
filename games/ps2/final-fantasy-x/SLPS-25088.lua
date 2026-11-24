@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title ファイナルファンタジーX インターナショナル
--- reader: reads What the message windows show (speech with its speaker, subtitles, notices) once typed out, and choices
+-- reader: reads Dialogue, speakers, subtitles, notices, and choices
 -- reader: version SLPS-25088
 --
 -- FINAL FANTASY X INTERNATIONAL (Square, PS2, 2002), SLPS-25088. Program 658597E2.

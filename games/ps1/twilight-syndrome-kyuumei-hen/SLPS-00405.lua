@@ -1,5 +1,5 @@
 -- reader: title トワイライトシンドローム 究明編
--- reader: reads The message window's lines as they are written: the narration, and what is said, with its speaker
+-- reader: reads Dialogue, narration, and speakers
 -- reader: version SLPS-00405 (boot program 9ECCD178)
 -- reader: no hooks
 -- reader: touch press

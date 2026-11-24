@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title 逆転裁判456 王泥喜セレクション (Apollo Justice: Ace Attorney Trilogy)
--- reader: reads The message window of all three games with the speaker, and the answers of a choice
+-- reader: reads Dialogue, speakers, and choices (all three games)
 -- reader: version Version 0, with 日本語 chosen as the game's language
 -- reader: touch game
 -- reader: audio never

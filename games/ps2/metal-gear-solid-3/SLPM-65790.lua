@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title METAL GEAR SOLID 3 SNAKE EATER
--- reader: reads The codec's conversations and the subtitles of cutscenes and radio calls
+-- reader: reads Codec conversations, radio calls, and cutscene subtitles
 -- reader: version SLPM-65790
 -- METAL GEAR SOLID 3 SNAKE EATER (Konami, PS2, 2004), SLPM-65790. Program 0481AD8A.
 --

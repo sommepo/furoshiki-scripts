@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title CLOCK ZERO 〜終焉の一秒〜 (Clock Zero: Shuuen no Ichibyou)
--- reader: reads The message window: narration and dialogue with speakers, and choices
+-- reader: reads Dialogue, narration, speakers, and choices
 -- reader: version SLPM-55281, disc version 1.01
 -- reader: touch press
 -- reader: buttons start select up down left right circle cross triangle square

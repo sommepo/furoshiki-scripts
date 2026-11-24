@@ -1,7 +1,7 @@
 -- reader: no hooks
 -- reader: api 3
 -- reader: title 逆転裁判123 成歩堂セレクション (Phoenix Wright: Ace Attorney Trilogy)
--- reader: reads The message window of the three games
+-- reader: reads Dialogue (all three games)
 -- reader: version The first release (v0)
 -- reader: touch game
 -- reader: audio never

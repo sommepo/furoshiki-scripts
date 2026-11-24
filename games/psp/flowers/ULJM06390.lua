@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title FLOWERS
--- reader: reads The message window with speakers, and choices
+-- reader: reads Dialogue, speakers, and choices
 -- reader: touch press
 -- reader: version ULJM-06390
 -- FLOWERS (Innocent Grey/Prototype, PSP, 2014), ULJM-06390. EBOOT.BIN 73B298BC.

@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title ドラゴンクエストIII そして伝説へ… (DRAGON QUEST III HD-2D Remake)
--- reader: reads The message window only: dialogue, system messages and the lines of a battle
+-- reader: reads Dialogue, battle text, and system messages
 -- reader: version Base game, version 1.0.0
 -- ドラゴンクエストIII そして伝説へ… (DRAGON QUEST III HD-2D Remake), Switch.
 -- Written for main build 6F49452BD0B343B17A77EE5B60C46233 (base game, version 1.0.0).

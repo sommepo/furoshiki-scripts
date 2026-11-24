@@ -1,5 +1,5 @@
 -- reader: title 逆転裁判123 成歩堂セレクション (Phoenix Wright: Ace Attorney Trilogy)
--- reader: reads Dialogue in the message window
+-- reader: reads Dialogue
 -- reader: version The Japanese cartridge release (CTR-P-BHDJ)
 -- 逆転裁判123 成歩堂セレクション / Phoenix Wright: Ace Attorney Trilogy (Japan), CTR-P-BHDJ,
 -- title 0004000000108800. Verified against the cartridge release whose decompressed ExeFS code has

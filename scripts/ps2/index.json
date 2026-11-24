@@ -5,12 +5,12 @@
     {
       "id": "SLPM-55281",
       "title": "CLOCK ZERO 〜終焉の一秒〜 (Clock Zero: Shuuen no Ichibyou)",
-      "reads": "The message window: narration and dialogue with speakers, and choices",
+      "reads": "Dialogue, narration, speakers, and choices",
       "version": "SLPM-55281, disc version 1.01",
       "api": 1,
       "file": "SLPM-55281.lua",
-      "size": 10041,
-      "sha256": "747dfd24f921cec8b7813c0ba6649e201afd3d6c8b5f9e0102eaf94daff29546",
+      "size": 10014,
+      "sha256": "61a1260151c54022debb0a92d797bfb501abeb9aede12c119533f97a30ed1fff",
       "names": {
         "file": "names-clock-zero.zip",
         "size": 4172,
@@ -20,12 +20,12 @@
     {
       "id": "SLPM-65051",
       "title": "サイレントヒル2",
-      "reads": "The text at the bottom of the picture: what is said in scenes and what is told when something is looked at",
+      "reads": "Dialogue and inspection text",
       "version": "SLPM-65051",
       "api": 1,
       "file": "SLPM-65051.lua",
-      "size": 5106,
-      "sha256": "93f38a1855a503c072fb5cc405514d4b4c870e4829c78ad9d6b49dd5cd2564d1",
+      "size": 5028,
+      "sha256": "8830980e7b1c406b8cd007bd361e70664058b9bb4d612e7afa1da547c4ec1e2b",
       "names": {
         "file": "names-silent-hill-2.zip",
         "size": 5085,
@@ -35,12 +35,12 @@
     {
       "id": "SLPM-65320",
       "title": "EVE burst error PLUS",
-      "reads": "The message window: what is said and told, part by part as it comes up in full",
+      "reads": "Dialogue and narration",
       "version": "SLPM-65320, disc version 1.02",
       "api": 1,
       "file": "SLPM-65320.lua",
-      "size": 10508,
-      "sha256": "46489f82d181ea76e1f7388e3bb9b138dbfb0c4f8c089026e840a630f27b736b",
+      "size": 10452,
+      "sha256": "c3c477535aca37d19c88096ddbc7f21cda0ece30fe43658b0ca1db1d9a18ea0e",
       "names": {
         "file": "names-eve-burst-error-plus.zip",
         "size": 6771,
@@ -50,12 +50,12 @@
     {
       "id": "SLPM-65421",
       "title": "Ever17 -the out of infinity- Premium Edition",
-      "reads": "The story's text with speakers, each message as it has come up in full, and choices",
+      "reads": "Dialogue, narration, speakers, and choices",
       "version": "SLPM-65421, disc version 1.01",
       "api": 1,
       "file": "SLPM-65421.lua",
-      "size": 10419,
-      "sha256": "5db468de6a8a52cd497ba7dd5073746cd7367e5ab2b909591594af2997d903ce",
+      "size": 10378,
+      "sha256": "53344161c31c08384ec789771197260916333944b623bd0703f1d49f624493d8",
       "names": {
         "file": "names-ever17.zip",
         "size": 5585,
@@ -65,12 +65,12 @@
     {
       "id": "SLPM-65462",
       "title": "真・女神転生III NOCTURNE マニアクス",
-      "reads": "The text the game lays out in rows: what is said in scenes and in message windows, each when it comes up",
+      "reads": "Dialogue and narration",
       "version": "SLPM-65462",
       "api": 1,
       "file": "SLPM-65462.lua",
-      "size": 12024,
-      "sha256": "83352e544f0d00a25f43162801f47182414d7f447d2eec161b0dafb0cef96594",
+      "size": 11942,
+      "sha256": "31375b93d4184f3e05501245a44fd898af2f95d9aee1e54ef5ae4209427912b1",
       "data": [
         {
           "file": "SLPM-65462.charset",
@@ -87,12 +87,12 @@
     {
       "id": "SLPM-65550",
       "title": "Remember11 -the age of infinity-",
-      "reads": "The story's text with speakers, each message as it has come up in full, and choices",
+      "reads": "Dialogue, narration, speakers, and choices",
       "version": "SLPM-65550, disc version 1.02",
       "api": 1,
       "file": "SLPM-65550.lua",
-      "size": 11595,
-      "sha256": "8e43e3272afe1185a11f5650ac1b623146c5d4d9cb910bb20bbfc5dc57b9eae5",
+      "size": 11554,
+      "sha256": "b14673fcbff8e0f201ba0f5faacb08154482ceaded2f7b251bd4f95981b35a05",
       "names": {
         "file": "names-remember-11.zip",
         "size": 4040,
@@ -102,12 +102,12 @@
     {
       "id": "SLPM-65555",
       "title": "ドラゴンクエストV 天空の花嫁",
-      "reads": "The message window: what is said and told, a speaker's lines as they have come up in full",
+      "reads": "Dialogue and narration",
       "version": "SLPM-65555",
       "api": 1,
       "file": "SLPM-65555.lua",
-      "size": 8279,
-      "sha256": "77c62895e14aad290e19319c38b0e5fd6f43b551d14e808a201eb7bc660dd9a3",
+      "size": 8212,
+      "sha256": "562078ace1aeab293d5522f921b7e555e84749af959908ff7e220f2f92b9803f",
       "names": {
         "file": "names-dragon-quest-v.zip",
         "size": 6130,
@@ -117,12 +117,12 @@
     {
       "id": "SLPM-65597",
       "title": "DIGITAL DEVIL SAGA アバタール・チューナー",
-      "reads": "The text the game lays out in rows: what is said in scenes and in message windows, each when it comes up",
+      "reads": "Dialogue and narration",
       "version": "SLPM-65597",
       "api": 1,
       "file": "SLPM-65597.lua",
-      "size": 12015,
-      "sha256": "34236e7c4ba6947bc2ede89ba8fecbb19c70ed315df12aa25d181c7dedce69c8",
+      "size": 11933,
+      "sha256": "8a3767f3ea88e341fe11b64bdc4bf35d69488488dc8d1807889b0afc4fcec329",
       "data": [
         {
           "file": "SLPM-65597.charset",
@@ -139,12 +139,12 @@
     {
       "id": "SLPM-65790",
       "title": "METAL GEAR SOLID 3 SNAKE EATER",
-      "reads": "The codec's conversations and the subtitles of cutscenes and radio calls",
+      "reads": "Codec conversations, radio calls, and cutscene subtitles",
       "version": "SLPM-65790",
       "api": 1,
       "file": "SLPM-65790.lua",
-      "size": 14552,
-      "sha256": "ab4f3d622a10d0aba760e601e46fc8b1de2183e14b4bf7ce9f0daa649176ebc3",
+      "size": 14536,
+      "sha256": "06717d5fd964942b33e70724df29b1e79adc32e8c944c1dc515d9fbb7d0c1b2f",
       "data": [
         {
           "file": "SLPM-65790.charset",
@@ -161,12 +161,12 @@
     {
       "id": "SLPM-66302",
       "title": "CLANNAD",
-      "reads": "The story's text with speakers, each message as it comes up, and choices; finished routes can be marked",
+      "reads": "Dialogue, narration, speakers, and choices (supports route tracking)",
       "version": "SLPM-66302, disc version 1.01",
       "api": 2,
       "file": "SLPM-66302.lua",
-      "size": 16117,
-      "sha256": "2591d4eb44d7b87c2fffcd2faa3e3543c09cfeea0e1c0f939c6435c4b06b2d4c",
+      "size": 16082,
+      "sha256": "44af86dfeaff51fa78594b6d0944af5a3882e92533146b98b3f79419180e9d79",
       "names": {
         "file": "names-clannad.zip",
         "size": 7203,
@@ -176,12 +176,12 @@
     {
       "id": "SLPM-66445",
       "title": "ペルソナ3",
-      "reads": "The text of message windows (what is said and told, system messages) with speakers, each page as it has come up in full, and choices",
+      "reads": "Dialogue, narration, speakers, system messages, and choices",
       "version": "SLPM-66445",
       "api": 1,
       "file": "SLPM-66445.lua",
-      "size": 12004,
-      "sha256": "cedd2978403001cd4597eddf3258c38146c07056e2dc80bf90dd61b4227614fd",
+      "size": 11931,
+      "sha256": "d1a51c933985cf46442bc3b4bc9028da7201679e10cf39261aad7b2445f87db5",
       "data": [
         {
           "file": "SLPM-66445.charset",
@@ -198,12 +198,12 @@
     {
       "id": "SLPM-66512",
       "title": "Fate/stay night [Realta Nua] (Extra Edition)",
-      "reads": "The story's narration and dialogue with furigana and layout geometry, line by line as it is presented",
+      "reads": "Dialogue, narration, and furigana",
       "version": "SLPM-66512, disc version 1.03",
       "api": 1,
       "file": "SLPM-66512.lua",
-      "size": 7149,
-      "sha256": "27578b5360ce8e75463b6120d3c6d23f4e2b475574dd988f78f421093fb2b544",
+      "size": 7081,
+      "sha256": "a1482b7b9e5850d63ab085deb02b97f62e0fba6050ead8eb8ff71c270623b6aa",
       "names": {
         "file": "names-fate-stay-night-realta-nua.zip",
         "size": 7585,
@@ -213,12 +213,12 @@
     {
       "id": "SLPM-66913",
       "title": "ひぐらしのなく頃に祭 カケラ遊び (Higurashi no Naku Koro ni Matsuri: Kakera Asobi)",
-      "reads": "The story's text with speakers and furigana, part by part as it comes up",
+      "reads": "Dialogue, narration, speakers, and furigana",
       "version": "SLPM-66913, disc version 1.01",
       "api": 1,
       "file": "SLPM-66913.lua",
-      "size": 11322,
-      "sha256": "af2d0b990619f18403cccebffbfa03544ade1be8b24566de48404fa0417a44ed",
+      "size": 11293,
+      "sha256": "cd68673232a9e5efe4ad5301daf1f0b7e94fff9e687a3f567bccb574d010d604",
       "names": {
         "file": "names-higurashi-matsuri-kakera-asobi.zip",
         "size": 12251,
@@ -228,12 +228,12 @@
     {
       "id": "SLPM-66978",
       "title": "ペルソナ4",
-      "reads": "The text of message windows (what is said and told, system messages) with speakers, each page as it has come up in full, and choices",
+      "reads": "Dialogue, narration, speakers, system messages, and choices",
       "version": "SLPM-66978",
       "api": 1,
       "file": "SLPM-66978.lua",
-      "size": 11906,
-      "sha256": "12fca0a9d3e2c0583aa0d4428501d9b598e84b562a874ff73d17fd4e7e554880",
+      "size": 11833,
+      "sha256": "35a7e26f1e76a123d85f5fb2f80348cb8900de48c2ea2dff091ceffb8f898f55",
       "data": [
         {
           "file": "SLPM-66978.charset",
@@ -250,12 +250,12 @@
     {
       "id": "SLPM-67002",
       "title": "METAL GEAR SOLID 2 SUBSTANCE",
-      "reads": "The codec's conversations and the subtitles of cutscenes and radio calls",
+      "reads": "Codec conversations, radio calls, and cutscene subtitles",
       "version": "SLPM-67002, disc version 1.01",
       "api": 1,
       "file": "SLPM-67002.lua",
-      "size": 14395,
-      "sha256": "12b0643c6bec7391e5d16dec62ca44d5f7422ddadc0c5799abbc1e8bef138017",
+      "size": 14379,
+      "sha256": "4de43c27df8a69a881f8650f1a08ddf5d368770a45393c4b16753c414fb97630",
       "data": [
         {
           "file": "SLPM-67002.charset",
@@ -272,12 +272,12 @@
     {
       "id": "SLPS-20121",
       "title": "Kanon",
-      "reads": "The story's text with speakers, each message once it is typed out, and choices",
+      "reads": "Dialogue, narration, speakers, and choices",
       "version": "SLPS-20121, disc version 1.02",
       "api": 1,
       "file": "SLPS-20121.lua",
-      "size": 9743,
-      "sha256": "36d51f9dd4c7b44f94e25e92323b7313a401e4b9027edf7fedfb2dc8eb9edb32",
+      "size": 9707,
+      "sha256": "800f6e672f8dd7034293dab1f1d47007bc7ff3ded9398e7188d76c84afb4c80b",
       "data": [
         {
           "file": "SLPS-20121.charset",
@@ -294,12 +294,12 @@
     {
       "id": "SLPS-25041",
       "title": "シャドウハーツ",
-      "reads": "The message windows of scenes and talk, with the speaker's name",
+      "reads": "Dialogue, narration, and speakers",
       "version": "SLPS-25041, disc version 1.02",
       "api": 1,
       "file": "SLPS-25041.lua",
-      "size": 6316,
-      "sha256": "b65f85f696445ea608906086b65696bf65bd3b846018bb5bbf3f69f4094f542f",
+      "size": 6286,
+      "sha256": "cea0d415971de2a993725a6031012052974c73fedb9b8a24a586c75aad377492",
       "names": {
         "file": "names-shadow-hearts.zip",
         "size": 9481,
@@ -309,12 +309,12 @@
     {
       "id": "SLPS-25088",
       "title": "ファイナルファンタジーX インターナショナル",
-      "reads": "What the message windows show (speech with its speaker, subtitles, notices) once typed out, and choices",
+      "reads": "Dialogue, speakers, subtitles, notices, and choices",
       "version": "SLPS-25088",
       "api": 1,
       "file": "SLPS-25088.lua",
-      "size": 16511,
-      "sha256": "6d12863390ad5511660a7313f8d287275adecf20cd960ffddadb366ac01b5650",
+      "size": 16459,
+      "sha256": "777a06cf31d7d3de60aeb80742fd768c92317958c4077d1087becf807cb51fcc",
       "data": [
         {
           "file": "SLPS-25088.charset",
@@ -331,12 +331,12 @@
     {
       "id": "SLPS-25256",
       "title": "Never7 -the end of infinity-",
-      "reads": "The story's text with speakers, each message as it has come up in full, and choices",
+      "reads": "Dialogue, narration, speakers, and choices",
       "version": "SLPS-25256, disc version 1.01",
       "api": 1,
       "file": "SLPS-25256.lua",
-      "size": 14464,
-      "sha256": "4179053da0be8c3649fdc6eded81820391e172139abfa555edc9432b4e51ed98",
+      "size": 14423,
+      "sha256": "443e0afa5d6c756f7ae4c840aac9323aff9844203c48d34d2a6c684f696f427c",
       "names": {
         "file": "names-never7.zip",
         "size": 3448,
@@ -346,12 +346,12 @@
     {
       "id": "SLPS-25679",
       "title": "うたわれるもの 散りゆく者への子守唄",
-      "reads": "The message window: what is said and told, with the speaker's name",
+      "reads": "Dialogue, narration, and speakers",
       "version": "SLPS-25679, disc version 1.04",
       "api": 1,
       "file": "SLPS-25679.lua",
-      "size": 5740,
-      "sha256": "7d2c846fee5d0cd62b05ab91945d74c9ce9e1c821c061df08d8e5aafe0dab1e3",
+      "size": 5707,
+      "sha256": "9b01b292e2c24f72ce9e7898538bb3c68ea516d1970280db844d843d0d620add",
       "names": {
         "file": "names-utawarerumono.zip",
         "size": 7263,
@@ -361,12 +361,12 @@
     {
       "id": "SLPS-25918",
       "title": "アマガミ",
-      "reads": "The message window's text with furigana, each message when it begins, and choices",
+      "reads": "Dialogue, furigana, and choices",
       "version": "SLPS-25918",
       "api": 1,
       "file": "SLPS-25918.lua",
-      "size": 25416,
-      "sha256": "f6f285c9b1d94776775df9a05f4b3fd816367a74873d12092d96e5e1aa5bcf11",
+      "size": 25366,
+      "sha256": "6fab8ff477e2ca822c1abc5ae571d30805ac73405e574d493d69450dd366d8e0",
       "names": {
         "file": "names-amagami.zip",
         "size": 6644,

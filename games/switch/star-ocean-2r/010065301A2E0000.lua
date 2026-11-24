@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title スターオーシャン セカンドストーリーR (STAR OCEAN THE SECOND STORY R)
--- reader: reads Conversation balloons with speakers, captions, choices, system messages and the party's chat
+-- reader: reads Dialogue, speakers, choices, captions, system messages, and party chat
 -- reader: version The game with its update v131072
 -- スターオーシャン セカンドストーリーR (STAR OCEAN THE SECOND STORY R), Switch.
 -- Written for main build 7266AEB08847B0FA86D1B8B653D21402 (the game with its update v131072).

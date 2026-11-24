@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title ペルソナ3
--- reader: reads The text of message windows (what is said and told, system messages) with speakers, each page as it has come up in full, and choices
+-- reader: reads Dialogue, narration, speakers, system messages, and choices
 -- reader: version SLPM-66445
 -- ペルソナ3 (Atlus, PS2, 2006), SLPM-66445. Program 05C3D28F. ペルソナ4's engine
 -- (SLPM-66978.lua), one version older; the addresses and offsets differ.

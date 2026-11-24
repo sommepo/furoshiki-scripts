@@ -1,5 +1,5 @@
 -- reader: title 弟切草 蘇生篇
--- reader: reads The story's text over the pictures, page by page, and its choices
+-- reader: reads Story text and choices
 -- reader: version SLPS-01645 (boot program 48F74C1B)
 -- reader: no hooks
 -- reader: audio never

@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title STEINS;GATE ELITE
--- reader: reads Narration and dialogue with speakers and furigana, and the phone's mails
+-- reader: reads Dialogue, narration, speakers, furigana, and phone emails
 -- reader: version Japanese release (game card), version 1.0.0
 -- reader: touch press
 -- STEINS;GATE ELITE, Switch, Japanese release.

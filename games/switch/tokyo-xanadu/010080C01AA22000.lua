@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title 東京ザナドゥ eX+ for Nintendo Switch (Tokyo Xanadu eX+)
--- reader: reads What the characters say in their speech balloons, with speakers and furigana, and the party's remarks (active voice)
+-- reader: reads Dialogue, speakers, furigana, and party chatter (active voice)
 -- reader: version The game as released (1.0.0)
 -- 東京ザナドゥ eX+ for Nintendo Switch (Tokyo Xanadu eX+), Switch, Japanese release.
 -- Written for main build 7596A9357FB9925AB33C87E6B3AEFD2CE19A4B42 (the game as released, 1.0.0).

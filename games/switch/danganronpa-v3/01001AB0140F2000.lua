@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title ニューダンガンロンパV3 みんなのコロシアイ新学期 超高校級の決定版 (Danganronpa V3: Killing Harmony Anniversary Edition)
--- reader: reads The message window: dialogue and narration, without the speaker's name
+-- reader: reads Dialogue and narration (no speaker names)
 -- reader: version Version 0
 -- reader: touch press
 -- reader: audio never

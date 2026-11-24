@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title ゼノブレイド2 (Xenoblade Chronicles 2)
--- reader: reads What is said in the story's scenes (subtitles) and in the field's balloons, with speakers, furigana and choices, tappable in the game's picture
+-- reader: reads Cutscene subtitles, field dialogue, speakers, furigana, and choices
 -- reader: version The game as released (1.0.0), without an update
 -- ゼノブレイド2 (Xenoblade Chronicles 2), Switch, Japanese release.
 -- Written for main build 3FFAE0EA40EC563F4BA38C581215A68B (the game as released, no update).

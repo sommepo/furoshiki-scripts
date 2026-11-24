@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title ペルソナ4
--- reader: reads The text of message windows (what is said and told, system messages) with speakers, each page as it has come up in full, and choices
+-- reader: reads Dialogue, narration, speakers, system messages, and choices
 -- reader: version SLPM-66978
 -- ペルソナ4 (Atlus, PS2, 2008), SLPM-66978. Program 4E63E63C.
 --

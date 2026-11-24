@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title マブラヴ (Muv-Luv Remastered)
--- reader: reads Narration and dialogue in every message window, with speakers, and choices
+-- reader: reads Dialogue, narration, speakers, and choices
 -- reader: version Base game, version 1.0.0
 -- reader: touch game
 -- マブラヴ (Muv-Luv Remastered), Switch.

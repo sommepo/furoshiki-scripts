@@ -5,12 +5,12 @@
     {
       "id": "SCPS-10053",
       "title": "ダブルキャスト",
-      "reads": "The lines under the film (with 台詞設定 at 文字+音声 or 文字のみ), and the choices",
+      "reads": "Subtitles (with 台詞設定 set to 文字+音声 or 文字のみ) and choices",
       "version": "SCPS-10053 (boot program AC46E621)",
       "api": 1,
       "file": "SCPS-10053.lua",
-      "size": 9444,
-      "sha256": "8a87e6d5464985a972218d8e3f507ab8fac7bd089329440e22c78e8e85a08903",
+      "size": 9428,
+      "sha256": "12a0e5d7ae7d84456a1945bb6c094f5401c80fe6b032c26103d98df3a951720c",
       "names": {
         "file": "names-double-cast.zip",
         "size": 2566,
@@ -20,12 +20,12 @@
     {
       "id": "SCPS-10054",
       "title": "ダブルキャスト",
-      "reads": "The lines under the film (with 台詞設定 at 文字+音声 or 文字のみ), and the choices",
+      "reads": "Subtitles (with 台詞設定 set to 文字+音声 or 文字のみ) and choices",
       "version": "SCPS-10054 (boot program AC46E621)",
       "api": 1,
       "file": "SCPS-10054.lua",
-      "size": 9444,
-      "sha256": "12f16de3c03042ef939012fb03afaeaa9821a38459b1431a63f1eb01325d07cd",
+      "size": 9428,
+      "sha256": "31beaecc5320e4872f4760a3e790db497bf11db58722df27c9b9290204128f58",
       "names": {
         "file": "names-double-cast.zip",
         "size": 2566,
@@ -35,12 +35,12 @@
     {
       "id": "SCPS-10131",
       "title": "アコンカグア",
-      "reads": "The message windows' lines (what the survivors say, what the hero thinks and finds, the item window), page by page",
+      "reads": "Dialogue, narration, and item descriptions",
       "version": "SCPS-10131, disc 1 (boot program 9108E514)",
       "api": 1,
       "file": "SCPS-10131.lua",
-      "size": 11934,
-      "sha256": "abdb66843c17fdc7a5c069bc523269cb8ecbff75e772976b5005e324e9d33065",
+      "size": 11862,
+      "sha256": "275755b42ba2feff4f13d8b95b81ccf4f5611ea07bfaec1927f4e58796ec8e8a",
       "names": {
         "file": "names-aconcagua.zip",
         "size": 2602,
@@ -50,12 +50,12 @@
     {
       "id": "SCPS-10132",
       "title": "アコンカグア",
-      "reads": "The message windows' lines (what the survivors say, what the hero thinks and finds, the item window), page by page",
+      "reads": "Dialogue, narration, and item descriptions",
       "version": "SCPS-10132, disc 2 (boot program 9108E514)",
       "api": 1,
       "file": "SCPS-10132.lua",
-      "size": 11934,
-      "sha256": "071b435db8d4fd716aef7ef1884865e4bb14b5cee23b23183030d836b5b719af",
+      "size": 11862,
+      "sha256": "2ef9e124a929d38b79f0365841b7af84a21a7ed7d119cf739f15b4c933cf85df",
       "names": {
         "file": "names-aconcagua.zip",
         "size": 2602,
@@ -65,12 +65,12 @@
     {
       "id": "SCPS-45500",
       "title": "ファイナルファンタジーIX",
-      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "reads": "Dialogue, speech bubbles, speakers, and choices",
       "version": "SCPS-45500 (boot program AA3684E8; disc 1 of 4)",
       "api": 1,
       "file": "SCPS-45500.lua",
-      "size": 12262,
-      "sha256": "51fe79ad1a89d30a7957810bc046d70563776f9879a0fd6c4c06c3844194ec79",
+      "size": 12199,
+      "sha256": "7b500d78183b00abe0f61e39eb3d1414ef16367c0227f106d4b907e780d828b6",
       "data": [
         {
           "file": "SCPS-45500.charset",
@@ -87,12 +87,12 @@
     {
       "id": "SCPS-45501",
       "title": "ファイナルファンタジーIX",
-      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "reads": "Dialogue, speech bubbles, speakers, and choices",
       "version": "SCPS-45501 (boot program AA3684E8; disc 2 of 4)",
       "api": 1,
       "file": "SCPS-45501.lua",
-      "size": 12262,
-      "sha256": "fd352750e73cb1df202cddf9207f1d8621279319d947379defae161a768bc84a",
+      "size": 12199,
+      "sha256": "fa7d5ce77e9892bca58b53bc441fc13917225cc91c87ab06518afee72cd4bf1f",
       "data": [
         {
           "file": "SCPS-45501.charset",
@@ -109,12 +109,12 @@
     {
       "id": "SCPS-45502",
       "title": "ファイナルファンタジーIX",
-      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "reads": "Dialogue, speech bubbles, speakers, and choices",
       "version": "SCPS-45502 (boot program AA3684E8; disc 3 of 4)",
       "api": 1,
       "file": "SCPS-45502.lua",
-      "size": 12262,
-      "sha256": "90f417865db3992d9aba520ff520307c6e20cdcb38bbc980ce4b5081d1a62e86",
+      "size": 12199,
+      "sha256": "9741db54a3d61357b5a8f711b82d787d1f33a99bf589260f9cbf0ed5bd94f3bb",
       "data": [
         {
           "file": "SCPS-45502.charset",
@@ -131,12 +131,12 @@
     {
       "id": "SCPS-45503",
       "title": "ファイナルファンタジーIX",
-      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "reads": "Dialogue, speech bubbles, speakers, and choices",
       "version": "SCPS-45503 (boot program AA3684E8; disc 4 of 4)",
       "api": 1,
       "file": "SCPS-45503.lua",
-      "size": 12262,
-      "sha256": "c0fd68dd1ea079e9d1e6015e7544fc3ba19fa9560f407b8d38548c540ac2a06d",
+      "size": 12199,
+      "sha256": "f25607211e3ed8bc60c403f028a6a6fce929a5268963f5c5c34fa5d2b753ee53",
       "data": [
         {
           "file": "SCPS-45503.charset",
@@ -153,12 +153,12 @@
     {
       "id": "SLPS-00102",
       "title": "トワイライトシンドローム 探索編",
-      "reads": "The message window's lines as they are written: the narration, and what is said, with its speaker",
+      "reads": "Dialogue, narration, and speakers",
       "version": "SLPS-00102 (boot program D21B63C4)",
       "api": 1,
       "file": "SLPS-00102.lua",
-      "size": 11025,
-      "sha256": "e8dafc7df54276df021553a6286d52e6cbff7ca3e084e6a8118917685371e7c9",
+      "size": 10961,
+      "sha256": "717432eec51b73d13a03b97333cf830d038f6afe5004ad4733e93175acaefa04",
       "data": [
         {
           "file": "SLPS-00102.charset",
@@ -175,12 +175,12 @@
     {
       "id": "SLPS-00404",
       "title": "学校であった怖い話S",
-      "reads": "The story's text, written down the page, paragraph by paragraph, and its choices",
+      "reads": "Story text and choices",
       "version": "SLPS-00404 (boot program 8A7E3290)",
       "api": 1,
       "file": "SLPS-00404.lua",
-      "size": 9384,
-      "sha256": "4f8be7d4a0ac8e1050bbd32d7c7257b41772d682798b7aea249b1a4b53ee1089",
+      "size": 9326,
+      "sha256": "dce3e94ebab3adf935039a922f8aae0ce0c439cf327dd7384087a9eca966aa91",
       "names": {
         "file": "names-gakkou-de-atta-kowai-hanashi-s.zip",
         "size": 3152,
@@ -190,12 +190,12 @@
     {
       "id": "SLPS-00405",
       "title": "トワイライトシンドローム 究明編",
-      "reads": "The message window's lines as they are written: the narration, and what is said, with its speaker",
+      "reads": "Dialogue, narration, and speakers",
       "version": "SLPS-00405 (boot program 9ECCD178)",
       "api": 1,
       "file": "SLPS-00405.lua",
-      "size": 11104,
-      "sha256": "a3a29d9a887e0ed6308a06e5a942b6dda2a4efee409ec8b1c123263bac2734cb",
+      "size": 11040,
+      "sha256": "b775a7109ce8a81a7f9a33cf127bcb71e7f68e42fac4bf9d72cea89fb34c33fd",
       "data": [
         {
           "file": "SLPS-00405.charset",
@@ -212,12 +212,12 @@
     {
       "id": "SLPS-00700",
       "title": "ファイナルファンタジーVII (ディスク1)",
-      "reads": "The field's message windows (what the characters say, notices, names) and their choices",
+      "reads": "Field dialogue, notices, and choices",
       "version": "SLPS-00700 (boot program 61B5B75A)",
       "api": 1,
       "file": "SLPS-00700.lua",
-      "size": 10670,
-      "sha256": "4f09cf12bfd595eb2851ce29ad3f06cc88b6b39cf735179dc3fafa9128d3fa45",
+      "size": 10619,
+      "sha256": "f4e861727d2c8d0d13a06bac9d3ca29214621abca78ef467d11311add4bb8477",
       "data": [
         {
           "file": "SLPS-00700.charset",
@@ -234,12 +234,12 @@
     {
       "id": "SLPS-00701",
       "title": "ファイナルファンタジーVII (ディスク2)",
-      "reads": "The field's message windows (what the characters say, notices, names) and their choices",
+      "reads": "Field dialogue, notices, and choices",
       "version": "SLPS-00701 (boot program 61B5B75A)",
       "api": 1,
       "file": "SLPS-00701.lua",
-      "size": 10670,
-      "sha256": "d16c47837df8b76c61315209db2c93de0f69f8cf8a5b219a986a380749ad77e6",
+      "size": 10619,
+      "sha256": "6508c50df29c8b09eb557ccb8ec45b52851fbe62fdfe9beb75cdd7325ece1f76",
       "data": [
         {
           "file": "SLPS-00701.charset",
@@ -256,12 +256,12 @@
     {
       "id": "SLPS-00702",
       "title": "ファイナルファンタジーVII (ディスク3)",
-      "reads": "The field's message windows (what the characters say, notices, names) and their choices",
+      "reads": "Field dialogue, notices, and choices",
       "version": "SLPS-00702 (boot program 61B5B75A)",
       "api": 1,
       "file": "SLPS-00702.lua",
-      "size": 10670,
-      "sha256": "80551a38a64eb8a515aa15c183de44099c46ddf39823ef63b68c7c0c5e718c93",
+      "size": 10619,
+      "sha256": "940cf9467fd6c011cd37b5cd3e3617e49fe729c526daff0964913156fd26b6a4",
       "data": [
         {
           "file": "SLPS-00702.charset",
@@ -278,12 +278,12 @@
     {
       "id": "SLPS-01001",
       "title": "ムーンライトシンドローム",
-      "reads": "The text window's lines, page by page, with the speaker's name",
+      "reads": "Dialogue, narration, and speakers",
       "version": "SLPS-01001, disc 1 (boot program 6AA67A0C)",
       "api": 1,
       "file": "SLPS-01001.lua",
-      "size": 8638,
-      "sha256": "2260dd484299f88b0fae2e0cf1ee368fb6786c165039c9e4e8537cd5a11b79b6",
+      "size": 8609,
+      "sha256": "5e2dd99bc12fcfb22cb928908661bb254509801be02de28290c99a7f06cae719",
       "data": [
         {
           "file": "SLPS-01001.charset",
@@ -300,12 +300,12 @@
     {
       "id": "SLPS-01002",
       "title": "ムーンライトシンドローム",
-      "reads": "The text window's lines, page by page, with the speaker's name",
+      "reads": "Dialogue, narration, and speakers",
       "version": "SLPS-01002, disc 2 (boot program 6AA67A0C)",
       "api": 1,
       "file": "SLPS-01002.lua",
-      "size": 8638,
-      "sha256": "3a65b0d644f2ae3ec1eb076f1da665e49201372a0a516fb9b58c47670ed1eb54",
+      "size": 8609,
+      "sha256": "fef75b4a629df1c35af46ca1babe234229bbe53e390d2fc6a8e0146557abd0aa",
       "data": [
         {
           "file": "SLPS-01002.charset",
@@ -322,12 +322,12 @@
     {
       "id": "SLPS-01645",
       "title": "弟切草 蘇生篇",
-      "reads": "The story's text over the pictures, page by page, and its choices",
+      "reads": "Story text and choices",
       "version": "SLPS-01645 (boot program 48F74C1B)",
       "api": 1,
       "file": "SLPS-01645.lua",
-      "size": 7487,
-      "sha256": "4014dfa2edc0b385bfbec02b3b5ff01ddb24d7e3adaa0ea1064dfd3a5c549a1d",
+      "size": 7444,
+      "sha256": "fa0e1e6643bc25676efd5cd1a39c4a96297e90adbce7e2c7a1eac8cbb5307ee0",
       "data": [
         {
           "file": "SLPS-01645.charset",
@@ -344,12 +344,12 @@
     {
       "id": "SLPS-01794",
       "title": "かまいたちの夜 特別篇",
-      "reads": "The story's text over the pictures, paragraph by paragraph, and its choices",
+      "reads": "Story text and choices",
       "version": "SLPS-01794 (boot program AD2BBA84)",
       "api": 1,
       "file": "SLPS-01794.lua",
-      "size": 8997,
-      "sha256": "d0e2150083773e9dc31620a44ad52465837237181b69738a2705197e4360986d",
+      "size": 8944,
+      "sha256": "181a750b7017ef820beb40043ddc655927139debab075460da3fabf2bf5a11e6",
       "names": {
         "file": "names-kamaitachi-no-yoru.zip",
         "size": 3707,
@@ -359,12 +359,12 @@
     {
       "id": "SLPS-02000",
       "title": "ファイナルファンタジーIX",
-      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "reads": "Dialogue, speech bubbles, speakers, and choices",
       "version": "SLPS-02000 (boot program AA3684E8; disc 1 of 4)",
       "api": 1,
       "file": "SLPS-02000.lua",
-      "size": 12262,
-      "sha256": "01eed31f6470064f0743df6f898fac4b94a69efd1ef2bed772dc7b2f556c952f",
+      "size": 12199,
+      "sha256": "c1bbf494733cd1b80777b31d69a9961f000dd365bc552c34d9e5eb7300765b20",
       "data": [
         {
           "file": "SLPS-02000.charset",
@@ -381,12 +381,12 @@
     {
       "id": "SLPS-02001",
       "title": "ファイナルファンタジーIX",
-      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "reads": "Dialogue, speech bubbles, speakers, and choices",
       "version": "SLPS-02001 (boot program AA3684E8; disc 2 of 4)",
       "api": 1,
       "file": "SLPS-02001.lua",
-      "size": 12262,
-      "sha256": "f1a2da16b85d9c3a852bfb6464acaa881e24672c0c39004da3aec754dacf416a",
+      "size": 12199,
+      "sha256": "c5ca8155c3eb5aa6a941849c7c5e581072f887e180436093b49ef18c0ad20069",
       "data": [
         {
           "file": "SLPS-02001.charset",
@@ -403,12 +403,12 @@
     {
       "id": "SLPS-02002",
       "title": "ファイナルファンタジーIX",
-      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "reads": "Dialogue, speech bubbles, speakers, and choices",
       "version": "SLPS-02002 (boot program AA3684E8; disc 3 of 4)",
       "api": 1,
       "file": "SLPS-02002.lua",
-      "size": 12262,
-      "sha256": "782111d7237880e729d8739a1887c241b79dd5b625b609cf71e5ea5eb3239ee2",
+      "size": 12199,
+      "sha256": "f059991b9570cbf069a44edb4adc5b2204fa95b41f501363523e3f31225046eb",
       "data": [
         {
           "file": "SLPS-02002.charset",
@@ -425,12 +425,12 @@
     {
       "id": "SLPS-02003",
       "title": "ファイナルファンタジーIX",
-      "reads": "The dialogue windows (speech bubbles and the lines over the scene), with the speaker's name, and their choices",
+      "reads": "Dialogue, speech bubbles, speakers, and choices",
       "version": "SLPS-02003 (boot program AA3684E8; disc 4 of 4)",
       "api": 1,
       "file": "SLPS-02003.lua",
-      "size": 12262,
-      "sha256": "5a7736a98214be6f81d84d571776b3e787edb377739664e25484b9e1a5ed1dc9",
+      "size": 12199,
+      "sha256": "6dd935444af59c3b631f677a8b9c8295350413b53e6e1d99af66c11a86b939f0",
       "data": [
         {
           "file": "SLPS-02003.charset",
@@ -447,12 +447,12 @@
     {
       "id": "SLPS-02296",
       "title": "メモリーズオフ",
-      "reads": "The text window's lines, paragraph by paragraph, with the speaker's name, and its choices",
+      "reads": "Dialogue, narration, speakers, and choices",
       "version": "SLPS-02296 (boot program D5FB86B4)",
       "api": 1,
       "file": "SLPS-02296.lua",
-      "size": 9631,
-      "sha256": "0e6126c8531593f54fe6572bdd57ee7458b846d4e1578cb65deb470538f2ea75",
+      "size": 9584,
+      "sha256": "98a8a14c48ba2da4a1dad3a7506befefe2a257e392d5dc51d8fec5031c95ec2e",
       "data": [
         {
           "file": "SLPS-02296.charset",

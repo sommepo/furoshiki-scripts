@@ -1,5 +1,5 @@
 -- reader: title ファイナルファンタジーVII (ディスク2)
--- reader: reads The field's message windows (what the characters say, notices, names) and their choices
+-- reader: reads Field dialogue, notices, and choices
 -- reader: version SLPS-00701 (boot program 61B5B75A)
 -- reader: no hooks
 -- reader: audio never

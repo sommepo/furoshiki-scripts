@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title HUNDRED LINE -最終防衛学園- (The Hundred Line -Last Defense Academy-)
--- reader: reads The talk window: dialogue and narration, with the speaker
+-- reader: reads Dialogue, narration, and speakers
 -- reader: version Version 1.0.0 (the base game)
 -- reader: touch press
 -- HUNDRED LINE -最終防衛学園- (The Hundred Line -Last Defense Academy-), Switch.

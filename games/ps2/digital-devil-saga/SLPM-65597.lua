@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title DIGITAL DEVIL SAGA アバタール・チューナー
--- reader: reads The text the game lays out in rows: what is said in scenes and in message windows, each when it comes up
+-- reader: reads Dialogue and narration
 -- reader: version SLPM-65597
 -- DIGITAL DEVIL SAGA アバタール・チューナー (Atlus, PS2, 2004), SLPM-65597. Program 44865CE1.
 -- Same engine as 真・女神転生III (SLPM-65462.lua); only the addresses differ. Change both

@@ -1,5 +1,5 @@
 -- reader: title メモリーズオフ
--- reader: reads The text window's lines, paragraph by paragraph, with the speaker's name, and its choices
+-- reader: reads Dialogue, narration, speakers, and choices
 -- reader: version SLPS-02296 (boot program D5FB86B4)
 -- reader: no hooks
 -- reader: touch press

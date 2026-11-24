@@ -1,5 +1,5 @@
 -- reader: title ムーンライトシンドローム
--- reader: reads The text window's lines, page by page, with the speaker's name
+-- reader: reads Dialogue, narration, and speakers
 -- reader: version SLPS-01001, disc 1 (boot program 6AA67A0C)
 -- reader: no hooks
 -- reader: touch press

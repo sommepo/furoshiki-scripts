@@ -1,5 +1,5 @@
 -- reader: title 大逆転裁判1&2 -成歩堂龍ノ介の冒險と覺悟- (The Great Ace Attorney Chronicles)
--- reader: reads Dialogue, testimony, choices and the court record
+-- reader: reads Dialogue, testimony, choices, and court record
 -- reader: version Base game, version 0
 -- reader: touch game
 -- reader: audio never

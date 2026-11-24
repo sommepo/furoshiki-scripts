@@ -1,5 +1,5 @@
 -- reader: title ファタモルガーナの館 -DREAMS OF THE REVENANTS EDITION- (The House in Fata Morgana)
--- reader: reads Dialogue and narration with furigana, and choices
+-- reader: reads Dialogue, narration, furigana, and choices
 -- reader: version Base game (version 0) and its update v65536
 -- reader: touch game
 -- The House in Fata Morgana: Dreams of the Revenants Edition (ファタモルガーナの館), Switch.

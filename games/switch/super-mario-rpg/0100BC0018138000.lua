@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title スーパーマリオRPG (Super Mario RPG)
--- reader: reads The message windows with speakers and furigana, in the field and in battle, the answers of a choice and the captions of the films
+-- reader: reads Field and battle dialogue, speakers, furigana, choices, and cutscene subtitles
 -- reader: version The game as released (1.0.0)
 -- reader: audio never
 -- スーパーマリオRPG (Super Mario RPG, 2023), Switch.

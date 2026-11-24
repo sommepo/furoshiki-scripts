@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title Fate/stay night [Realta Nua] (Extra Edition)
--- reader: reads The story's narration and dialogue with furigana and layout geometry, line by line as it is presented
+-- reader: reads Dialogue, narration, and furigana
 -- reader: version SLPM-66512, disc version 1.03
 -- reader: touch press
 -- reader: buttons start square up down circle cross

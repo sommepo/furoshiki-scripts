@@ -1,6 +1,6 @@
 -- reader: no hooks
 -- reader: title 真・女神転生III NOCTURNE マニアクス
--- reader: reads The text the game lays out in rows: what is said in scenes and in message windows, each when it comes up
+-- reader: reads Dialogue and narration
 -- reader: version SLPM-65462
 -- 真・女神転生III NOCTURNE マニアクス (Atlus, PS2, 2004), SLPM-65462. Program 0E762E8D.
 -- Same engine as DIGITAL DEVIL SAGA (SLPM-65597.lua); only the addresses differ. Change both

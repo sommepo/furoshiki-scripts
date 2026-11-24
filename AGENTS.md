@@ -180,8 +180,14 @@ not covered. The report quotes **at least five lines exactly as `python tools/ag
 printed them** while you played (with their speakers, and a choice if the part played has
 one): this is what shows that the script reads the game. Before you send it, read the report
 against the script line by line: every claim in it must be something the script does and you
-saw. A pull request without those lines is not merged. With their word, push the branch to their fork and open a pull request here with that
-report, in the sections the pull request's template has. Change nothing in `scripts/`: it is made from `games/` when the pull request is
+saw. A pull request without those lines is not merged.
+
+With their word, open the pull request. Only the maintainer can push here, so the branch goes to
+the user's fork of this repository. If they have none, `gh repo fork --remote` makes it on GitHub
+and points `origin` at it (this repository becomes `upstream`); without `gh`, ask them to press
+Fork on GitHub and add it as a remote. Push the branch there, then
+`gh pr create --repo sommepo/furoshiki-scripts` with the report, in the sections the pull
+request's template has. Change nothing in `scripts/`: it is made from `games/` when the pull request is
 merged, and CI refuses a pull request that edits it.
 
 ## Where things are

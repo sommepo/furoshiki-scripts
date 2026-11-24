@@ -86,7 +86,8 @@ Windows, Linux, or macOS.
 **Requirements:** Furoshiki 0.3.2+, Python 3.9+, a coding agent, and your own dump of the Japanese
 release.
 
-1. Fork this repository on GitHub, clone your fork, and start your agent inside the repo.
+1. Clone this repository and start your agent inside it. You don't need a fork to write or play
+   a script.
 2. Tell the agent which game to add along with the paths to your dump and Furoshiki — for example:
    *"Add support for Steins;Gate on PSP. The game is at `D:\Games\PSP\steins-gate.iso` and
    Furoshiki is in `C:\Furoshiki`."*
@@ -94,8 +95,10 @@ release.
    memory, writes the Lua script, tests it in the running game, and reports what it verified.
 4. Play through a few scenes yourself to check it (the agent saves the script directly into your
    local scripts folder).
-5. Have the agent open a pull request. Once merged, everyone can install the script from inside
-   Furoshiki.
+5. To share it, have the agent open a pull request. Only the maintainer can push to this
+   repository, so GitHub needs a copy of it under your account (a fork) to send the pull request
+   from. The agent makes the fork for you if you don't have one. Once the pull request is merged,
+   everyone can install the script from inside Furoshiki.
 
 Under the hood, the agent drives Furoshiki via `tools/agent.py`, a zero-dependency Python CLI
 (`python tools/agent.py --help`).

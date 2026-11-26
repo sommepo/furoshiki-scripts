@@ -14,7 +14,7 @@
       "names": {
         "file": "names-double-cast.zip",
         "size": 2566,
-        "sha256": "5ff6ea9d88cfd4ac77c5707a206cd4dddf92bd2fefb23b6c66b3fa6f79d071f8"
+        "sha256": "5b16b4fea118306a6c8d09e2983f661f6d6d891b77abd566af3276500c04efc3"
       }
     },
     {
@@ -29,7 +29,7 @@
       "names": {
         "file": "names-double-cast.zip",
         "size": 2566,
-        "sha256": "5ff6ea9d88cfd4ac77c5707a206cd4dddf92bd2fefb23b6c66b3fa6f79d071f8"
+        "sha256": "5b16b4fea118306a6c8d09e2983f661f6d6d891b77abd566af3276500c04efc3"
       }
     },
     {
@@ -43,8 +43,8 @@
       "sha256": "275755b42ba2feff4f13d8b95b81ccf4f5611ea07bfaec1927f4e58796ec8e8a",
       "names": {
         "file": "names-aconcagua.zip",
-        "size": 2602,
-        "sha256": "94ec45dc6764d95d6758045d31760d9d5d496f55e105bde3430a4fae5310b47b"
+        "size": 2603,
+        "sha256": "422128bff8a896d3f077a70e4aebd9bed5ba6294554776eb512acf8fd5e1c037"
       }
     },
     {
@@ -58,8 +58,8 @@
       "sha256": "2ef9e124a929d38b79f0365841b7af84a21a7ed7d119cf739f15b4c933cf85df",
       "names": {
         "file": "names-aconcagua.zip",
-        "size": 2602,
-        "sha256": "94ec45dc6764d95d6758045d31760d9d5d496f55e105bde3430a4fae5310b47b"
+        "size": 2603,
+        "sha256": "422128bff8a896d3f077a70e4aebd9bed5ba6294554776eb512acf8fd5e1c037"
       }
     },
     {
@@ -81,7 +81,7 @@
       "names": {
         "file": "names-final-fantasy-ix.zip",
         "size": 8383,
-        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+        "sha256": "0886b77506b75a6cd1ad8fe0e08d2c8c0c18c0c10bc1daa7c19f2a19ad66579d"
       }
     },
     {
@@ -103,7 +103,7 @@
       "names": {
         "file": "names-final-fantasy-ix.zip",
         "size": 8383,
-        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+        "sha256": "0886b77506b75a6cd1ad8fe0e08d2c8c0c18c0c10bc1daa7c19f2a19ad66579d"
       }
     },
     {
@@ -125,7 +125,7 @@
       "names": {
         "file": "names-final-fantasy-ix.zip",
         "size": 8383,
-        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+        "sha256": "0886b77506b75a6cd1ad8fe0e08d2c8c0c18c0c10bc1daa7c19f2a19ad66579d"
       }
     },
     {
@@ -147,7 +147,7 @@
       "names": {
         "file": "names-final-fantasy-ix.zip",
         "size": 8383,
-        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+        "sha256": "0886b77506b75a6cd1ad8fe0e08d2c8c0c18c0c10bc1daa7c19f2a19ad66579d"
       }
     },
     {
@@ -168,8 +168,8 @@
       ],
       "names": {
         "file": "names-twilight-syndrome-tansaku-hen.zip",
-        "size": 4251,
-        "sha256": "b7b6147973e02a50d68513139bcff43c4077b30008d24b8220de8d8c707b37b4"
+        "size": 4252,
+        "sha256": "5bd17129e721df5da198ceea83b0873c8ccb2e0e8f61003e64198fb172124152"
       }
     },
     {
@@ -184,7 +184,7 @@
       "names": {
         "file": "names-gakkou-de-atta-kowai-hanashi-s.zip",
         "size": 3152,
-        "sha256": "3b0349630b969e98b2b7b03f4d4c8fbce8577333789269a3be9b54c085edbb90"
+        "sha256": "6047666edc9cdb3dc3e7feb9a255ea3b889852e115c399404c88018455713628"
       }
     },
     {
@@ -206,7 +206,7 @@
       "names": {
         "file": "names-twilight-syndrome-kyuumei-hen.zip",
         "size": 4354,
-        "sha256": "5a5e235c929287ed40d9f49eb6fd216964eab75ea88edbb466663fb829bc8806"
+        "sha256": "9444c5780b6ddbd7eb0401436bf5447f4f324d5f75c434d902db0b6dad59df51"
       }
     },
     {
@@ -227,8 +227,8 @@
       ],
       "names": {
         "file": "names-final-fantasy-vii.zip",
-        "size": 9278,
-        "sha256": "773ca34f0271acb6ae18d9fc2991569231b318438bc341f56fcb56dc1cdf806c"
+        "size": 9289,
+        "sha256": "b9922cef59548a853ff7cb1a5feba393859fadeafe37cb7d684331ef2b9f39d6"
       }
     },
     {
@@ -249,8 +249,8 @@
       ],
       "names": {
         "file": "names-final-fantasy-vii.zip",
-        "size": 9278,
-        "sha256": "773ca34f0271acb6ae18d9fc2991569231b318438bc341f56fcb56dc1cdf806c"
+        "size": 9289,
+        "sha256": "b9922cef59548a853ff7cb1a5feba393859fadeafe37cb7d684331ef2b9f39d6"
       }
     },
     {
@@ -271,8 +271,8 @@
       ],
       "names": {
         "file": "names-final-fantasy-vii.zip",
-        "size": 9278,
-        "sha256": "773ca34f0271acb6ae18d9fc2991569231b318438bc341f56fcb56dc1cdf806c"
+        "size": 9289,
+        "sha256": "b9922cef59548a853ff7cb1a5feba393859fadeafe37cb7d684331ef2b9f39d6"
       }
     },
     {
@@ -293,8 +293,8 @@
       ],
       "names": {
         "file": "names-moonlight-syndrome.zip",
-        "size": 5284,
-        "sha256": "969784dda3de4da9c4a5d346ae8c5ec652bef1f087e8192150f3168c2f0ebaed"
+        "size": 5452,
+        "sha256": "3effebbb04629a874ecba6774fd78e43bb7f1ce342e9e26bd7171960a4ac2816"
       }
     },
     {
@@ -315,8 +315,8 @@
       ],
       "names": {
         "file": "names-moonlight-syndrome.zip",
-        "size": 5284,
-        "sha256": "969784dda3de4da9c4a5d346ae8c5ec652bef1f087e8192150f3168c2f0ebaed"
+        "size": 5452,
+        "sha256": "3effebbb04629a874ecba6774fd78e43bb7f1ce342e9e26bd7171960a4ac2816"
       }
     },
     {
@@ -337,8 +337,8 @@
       ],
       "names": {
         "file": "names-otogirisou.zip",
-        "size": 2931,
-        "sha256": "a96f898d4c01a2888bd85e21abd32bf39930e179a870b21db0a8a28bfaaed7fc"
+        "size": 2932,
+        "sha256": "8a4ff8ddd81c90aa4a17c7fd2c7242422382644b402fe382f6fdb57afc4f7771"
       }
     },
     {
@@ -352,8 +352,8 @@
       "sha256": "181a750b7017ef820beb40043ddc655927139debab075460da3fabf2bf5a11e6",
       "names": {
         "file": "names-kamaitachi-no-yoru.zip",
-        "size": 3707,
-        "sha256": "f3ad073b3bd41823c5705f1b2c1ae1675c0c53b5cb9991a0f4687603d6db71ee"
+        "size": 3869,
+        "sha256": "fbdc9c725989c1bcece203f790454619f9f568827aaa36cc1717cfa208af88dc"
       }
     },
     {
@@ -375,7 +375,7 @@
       "names": {
         "file": "names-final-fantasy-ix.zip",
         "size": 8383,
-        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+        "sha256": "0886b77506b75a6cd1ad8fe0e08d2c8c0c18c0c10bc1daa7c19f2a19ad66579d"
       }
     },
     {
@@ -397,7 +397,7 @@
       "names": {
         "file": "names-final-fantasy-ix.zip",
         "size": 8383,
-        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+        "sha256": "0886b77506b75a6cd1ad8fe0e08d2c8c0c18c0c10bc1daa7c19f2a19ad66579d"
       }
     },
     {
@@ -419,7 +419,7 @@
       "names": {
         "file": "names-final-fantasy-ix.zip",
         "size": 8383,
-        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+        "sha256": "0886b77506b75a6cd1ad8fe0e08d2c8c0c18c0c10bc1daa7c19f2a19ad66579d"
       }
     },
     {
@@ -441,7 +441,7 @@
       "names": {
         "file": "names-final-fantasy-ix.zip",
         "size": 8383,
-        "sha256": "adfda620ec84159d98bc9eac80b0550762dd2d63f8633ce429dbe685de48543f"
+        "sha256": "0886b77506b75a6cd1ad8fe0e08d2c8c0c18c0c10bc1daa7c19f2a19ad66579d"
       }
     },
     {
@@ -463,7 +463,7 @@
       "names": {
         "file": "names-memories-off.zip",
         "size": 3476,
-        "sha256": "4be778585fb8c9659efe2328cce5e497bb4546cdaca2e71122832e6e4ebd0606"
+        "sha256": "6b6800be0ac63193f21873f408d2f6a8c0d8d8fd9126de9a7024fa27f7fffd44"
       }
     }
   ]

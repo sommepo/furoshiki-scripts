@@ -58,6 +58,26 @@ script is here (`script_here`). If one is there, the game is supported: say so, 
 whether to improve that script instead. (On Linux and macOS use `python3`. `--home DIR` gives Furoshiki a
 folder of its own for the test, but then the BIOS must be put there too.)
 
+### Check Agent scripts, LunaHook, and known engines first
+
+Before searching memory from scratch, always check whether 0xDC00's **Agent** scripts or
+**LunaTranslator's LunaHook** tables already know the game's hook addresses:
+
+```sh
+python tools/agent.py hooks
+```
+
+If a converted hook matches, `--draft games/<console>/<game>/<ID>.lua` writes a starter Lua file
+you can load immediately with `try`, then refine for build checks, speakers, choices, and
+`reader.layout`. Even when an Agent `.js` script is too custom for automatic conversion, reading
+its hook address, register, and control-code logic saves most of the reverse-engineering work.
+**Whenever a script is adapted from Agent or LunaHook, preserve the source project and the
+original script's `@author` credit in the top comment of the `.lua` file.**
+
+If no Agent or LunaHook entry matches, check [docs/engines.md](docs/engines.md) to see whether the
+game's maker or engine (KID/MAGES., Prototype/RealLive, Atlus, Spike Chunsoft, Capcom, Falcom,
+Square Enix, Unity) is already documented with reference scripts in `games/`.
+
 ## 2. Reach the game's text
 
 ```sh
@@ -88,14 +108,17 @@ python tools/agent.py snap a        # memory now
 python tools/agent.py press east    # the next line
 python tools/agent.py snap b
 python tools/agent.py snap c        # again, with nothing pressed
-python tools/agent.py changed a b --same c
+python tools/agent.py text-diff a b --same c   # changed Japanese text runs across encodings
+python tools/agent.py changed a b --same c     # 4-byte pointers / counters that changed
 python tools/agent.py read 0x08A96F7B 64 --enc sjis
 python tools/agent.py lua "mem.u32(0x0894A000)"
 ```
 
-`changed` lists the 4-byte words that changed with the line and then stood still: the
-pointer to the current message, the count of characters shown, the window's state. `read` and
-`lua` (any expression of the script API, run in the game) check what each is.
+`text-diff` extracts changed Japanese string runs (Shift-JIS, UTF-8, UTF-16LE/BE) directly so you
+can spot the live dialogue buffer in one step. `changed` lists the 4-byte words that changed with
+the line and then stood still: the pointer to the current message, the count of characters shown,
+the window's state. `read` and `lua` (any expression of the script API, run in the game) check what
+each is.
 
 When `find` finds nothing for a line that is plainly on screen, the game numbers its
 characters in a font of its own. Its script then needs a **character table**,
@@ -141,8 +164,9 @@ the game in lower case with hyphens, as its usual romanised or English name (`si
 ## 5. Try it in the game
 
 ```sh
-python tools/agent.py try games/<console>/<game>/<ID>.lua   # copied into Furoshiki, reloaded
-python tools/agent.py watch 30                         # each line as it is read
+python tools/agent.py try games/<console>/<game>/<ID>.lua      # copied into Furoshiki, reloaded
+python tools/agent.py verify games/<console>/<game>/<ID>.lua   # advance lines, test savestate, flag bugs
+python tools/agent.py watch 30                                 # each line as it is read
 ```
 
 `try` prints the script's error if it fails to load. In a second terminal, or between
@@ -198,6 +222,7 @@ merged, and CI refuses a pull request that edits it.
 | `scripts/<console>/` | Made from `games/` by CI: what Furoshiki installs from, with each console's `index.json`. Never edited by hand |
 | `docs/script-api.md` | Everything a script can call |
 | `docs/consoles.md` | Each console's processor, screen space and usual encodings |
+| `docs/engines.md` | Common VN/JRPG engines, control codes and reference scripts |
 | `tools/agent.py` | Drives Furoshiki while a script is written (`--help`) |
 | `tools/check.py` | What CI checks on every pull request |
 | `tools/build-lists.py` | Writes the lists (CI, after a merge) |

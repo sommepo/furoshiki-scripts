@@ -9,6 +9,7 @@ which Furoshiki opens when it is started with READER_DESKTOP_CONTROL set: `start
 
     python tools/agent.py setup PATH          # where Furoshiki is (its folder or program)
     python tools/agent.py start GAME_FILE     # starts Furoshiki with the game
+    python tools/agent.py hooks               # Step 1: check Agent scripts & LunaHook for this game
     python tools/agent.py status              # the game's ID, the script's state, the line read
     python tools/agent.py press circle        # a button by the console's name for it
                                               # (`buttons` lists them) or by its place: south
@@ -16,10 +17,12 @@ which Furoshiki opens when it is started with READER_DESKTOP_CONTROL set: `start
     python tools/agent.py shot shots/a.png    # a picture of the game
     python tools/agent.py find "こんにちは"     # the text in memory, in every encoding
     python tools/agent.py snap NAME           # keep the memory as it is now
-    python tools/agent.py changed A B         # addresses that differ between two snaps
+    python tools/agent.py changed A B         # 4-byte words that differ between two snaps
+    python tools/agent.py text-diff A B       # changed Japanese text runs between two snaps
     python tools/agent.py read 0x8A0000 256   # bytes, with the text they decode to
     python tools/agent.py lua "mem.u32(0x8A0000)"
     python tools/agent.py try games/psp/steins-gate/ULJM05887.lua   # into Furoshiki, reloaded
+    python tools/agent.py verify games/psp/steins-gate/ULJM05887.lua # automated smoke check
     python tools/agent.py watch 60            # each line the script reads, for 60 seconds
     python tools/agent.py send "COMMAND ..."  # any command of the channel
     python tools/agent.py stop                # quits Furoshiki
@@ -30,6 +33,7 @@ the top of this repository, which Git ignores. Nothing here goes on the network.
 import argparse
 import json
 import os
+import re
 import shutil
 import socket
 import subprocess
@@ -345,6 +349,332 @@ def cmd_changed(args):
             break
 
 
+def is_jp_char(ch):
+    code = ord(ch)
+    return (0x3040 <= code <= 0x309F or   # Hiragana
+            0x30A0 <= code <= 0x30FF or   # Katakana
+            0x4E00 <= code <= 0x9FFF)     # CJK Unified Ideographs
+
+
+def is_text_char(ch):
+    code = ord(ch)
+    return (is_jp_char(ch) or
+            0x3000 <= code <= 0x303F or   # CJK punctuation
+            0xFF01 <= code <= 0xFF60 or   # Fullwidth ASCII/punct
+            0x20 <= code <= 0x7E or
+            ch in "\n\r\t…―─「」『』（）！？・、。")
+
+
+def find_hooks_dirs(explicit=None):
+    candidates = []
+    if explicit:
+        candidates.append(Path(explicit).expanduser().resolve())
+    try:
+        profiles = Path(ask("scripts-folder", Channel(timeout=1.5)))
+        # .../program/reader/profiles -> .../program/hooks
+        candidates.append(profiles.parent.parent / "hooks")
+    except SystemExit:
+        pass
+    if WINDOWS:
+        local = os.environ.get("LOCALAPPDATA")
+        if local:
+            candidates.append(Path(local) / "Furoshiki" / "program" / "hooks")
+    else:
+        candidates.append(Path.home() / ".local" / "share" / "Furoshiki" / "program" / "hooks")
+    seen = []
+    for p in candidates:
+        if p.is_dir() and p not in seen:
+            seen.append(p)
+    return seen
+
+
+def draft_lua_from_hook(entry, game_id, author=""):
+    title = entry.get("name") or game_id
+    source = entry.get("source") or "Agent"
+    from_file = entry.get("from") or ""
+    credit = f"Adapted from {source}"
+    if from_file:
+        credit += f" ({from_file})"
+    if author:
+        credit += f" by {author}"
+    lines = [
+        f"-- reader: title {title}",
+        "-- reader: reads dialogue",
+        f"-- reader: version {entry.get('version') or '1.0'}",
+        f"-- {credit}",
+        "-- TODO: verify build_id, speakers, choices, and reader.layout in-game before submitting.",
+        "",
+        "reader.hooks{",
+    ]
+    for h in entry.get("hooks", []):
+        parts = [f"address = 0x{int(h.get('address', 0)):X}"]
+        if h.get("name"):
+            parts.append(f"name = {json.dumps(h['name'])}")
+        if h.get("read"):
+            parts.append("read = true")
+        if h.get("relative"):
+            parts.append("relative = true")
+        if h.get("from"):
+            parts.append(f"from = {json.dumps(h['from'])}")
+        if h.get("wide"):
+            parts.append("wide = true")
+        if h.get("add"):
+            parts.append(f"add = {int(h['add'])}")
+        if h.get("text"):
+            parts.append(f"text = {json.dumps(h['text'])}")
+        if h.get("whole"):
+            parts.append("whole = true")
+        lines.append("    { " + ", ".join(parts) + " },")
+    lines.append("}")
+    lines.append("")
+    return "\n".join(lines)
+
+
+def cmd_hooks(args):
+    query = args.query
+    if not query:
+        try:
+            now = status(Channel(timeout=2.0))
+            query = now.get("title_id") or ""
+        except SystemExit:
+            pass
+    if not query:
+        raise SystemExit("Pass a game ID or start a game first: python tools/agent.py hooks ULJM05887")
+    q_norm = re.sub(r"[^A-Za-z0-9]", "", query).upper()
+    q_low = query.lower()
+    dirs = find_hooks_dirs(args.hooks_dir)
+    if not dirs:
+        print("No local Furoshiki hooks folder found. Fetch Agent scripts and LunaHook tables in "
+              "Furoshiki (or pass --hooks-dir PATH) to search them automatically.")
+        return
+
+    found_any = False
+    first_converted = None
+    first_author = ""
+
+    for root in dirs:
+        # 1. Converted core-hooks.json (Agent entries take priority over LunaHook)
+        index_path = root / "core-hooks.json"
+        if index_path.is_file():
+            try:
+                data = json.loads(index_path.read_text(encoding="utf-8"))
+                games = data.get("games", data) if isinstance(data, dict) else data
+                matches = []
+                for g in games:
+                    ids = [re.sub(r"[^A-Za-z0-9]", "", i).upper() for i in g.get("ids", [])]
+                    name = (g.get("name") or "").lower()
+                    if q_norm in ids or (len(q_low) >= 3 and q_low in name):
+                        matches.append(g)
+                matches.sort(key=lambda g: 0 if (g.get("source") or "").lower() == "agent" else 1)
+                for g in matches:
+                    found_any = True
+                    if first_converted is None:
+                        first_converted = g
+                    print(f"[core-hooks.json] {g.get('source')} | {g.get('console')} | "
+                          f"IDs={','.join(g.get('ids', []))} | {g.get('name', '')}")
+                    if g.get("from"):
+                        print(f"  source file: {g['from']}")
+                    for h in g.get("hooks", []):
+                        print(f"  hook: addr=0x{int(h.get('address', 0)):X} from={h.get('from', '')} "
+                              f"text={h.get('text', 'sjis')} relative={bool(h.get('relative'))} "
+                              f"read={bool(h.get('read'))}")
+            except (OSError, ValueError) as exc:
+                print(f"Could not read {index_path}: {exc}", file=sys.stderr)
+
+        # 2. Raw 0xDC00 Agent .js scripts (catches scripts CoreHooks could not auto-convert)
+        for js in sorted(root.rglob("*.js")):
+            stem_norm = re.sub(r"[^A-Za-z0-9]", "", js.stem).upper()
+            if q_norm not in stem_norm and (len(q_low) < 4 or q_low not in js.stem.lower()):
+                continue
+            found_any = True
+            src = js.read_text(encoding="utf-8", errors="replace")
+            author_m = re.search(r"@author\s+(.+)", src)
+            name_m = re.search(r"@name\s+(.+)", src)
+            author = author_m.group(1).strip() if author_m else ""
+            if author and not first_author:
+                first_author = author
+            print(f"[Agent script] {js}")
+            if name_m:
+                print(f"  @name:   {name_m.group(1).strip()}")
+            if author:
+                print(f"  @author: {author}  (credit this author in your Lua header)")
+            hook_addrs = re.findall(r"0x[0-9A-Fa-f]{4,16}", src)[:12]
+            if hook_addrs:
+                print(f"  addresses seen: {', '.join(dict.fromkeys(hook_addrs))}")
+
+        # 3. Raw LunaHook emulator tables (*.cpp)
+        for cpp in sorted(root.rglob("*.cpp")):
+            try:
+                text = cpp.read_text(encoding="utf-8", errors="replace")
+            except OSError:
+                continue
+            if query.upper() not in text.upper() and q_norm not in re.sub(r"[^A-Za-z0-9]", "", text).upper():
+                continue
+            for lineno, line in enumerate(text.splitlines(), 1):
+                if query.upper() in line.upper() or (len(q_norm) >= 6 and q_norm in re.sub(r"[^A-Za-z0-9]", "", line).upper()):
+                    found_any = True
+                    print(f"[LunaHook table] {cpp}:{lineno}: {line.strip()[:160]}")
+
+    if not found_any:
+        print(f"No Agent scripts or LunaHook entries matched '{query}' in {[str(d) for d in dirs]}.")
+        print("Proceed to Step 2 (docs/engines.md and memory search with find / text-diff).")
+    elif args.draft and first_converted is not None:
+        out_path = Path(args.draft).expanduser().resolve()
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(draft_lua_from_hook(first_converted, query, first_author), encoding="utf-8")
+        print(f"Wrote starter draft to {out_path}")
+
+
+def cmd_text_diff(args):
+    a, found = load_snap(args.a)
+    b, _ = load_snap(args.b)
+    same = load_snap(args.same)[0] if args.same else None
+    encodings = args.enc.split(",") if args.enc else ["sjis", "utf8", "utf16le", "utf16be"]
+    limit = min(len(a), len(b))
+    # Find contiguous changed spans (merging gaps <= 8 bytes)
+    spans = []
+    i = 0
+    while i < limit:
+        if a[i] != b[i] and (same is None or same[i] == b[i]):
+            start = i
+            last = i
+            i += 1
+            while i < limit and i - last <= 8:
+                if a[i] != b[i] and (same is None or same[i] == b[i]):
+                    last = i
+                i += 1
+            if last - start + 1 >= 4:
+                spans.append((max(0, start - 4), min(limit, last + 64)))
+        else:
+            i += 1
+
+    hits = []
+    seen_keys = set()
+    for s_start, s_end in spans:
+        address, region = address_of(s_start, found)
+        if region is None or (not args.video and region.get("state") == 3):
+            continue
+        chunk_b = b[s_start:s_end]
+        chunk_a = a[s_start:s_end]
+        for key in encodings:
+            enc = ENCODINGS[key]
+            step = 2 if key.startswith("utf16") else 1
+            try:
+                decoded = chunk_b.decode(enc, "ignore")
+            except LookupError:
+                continue
+            # Extract longest clean text run containing Japanese characters
+            best = ""
+            cur = []
+            for ch in decoded:
+                if is_text_char(ch):
+                    cur.append(ch)
+                else:
+                    cand = "".join(cur).strip()
+                    if len(cand) > len(best):
+                        best = cand
+                    cur = []
+            cand = "".join(cur).strip()
+            if len(cand) > len(best):
+                best = cand
+            jp_count = sum(1 for ch in best if is_jp_char(ch))
+            if jp_count < args.min_jp:
+                continue
+            # Confirm this text wasn't already identical in snapshot A
+            if best and best in chunk_a.decode(enc, "ignore"):
+                continue
+            dedup = (address & ~0xF, key, best[:24])
+            if dedup in seen_keys:
+                continue
+            seen_keys.add(dedup)
+            hits.append((jp_count, address, key, best[:120]))
+
+    hits.sort(key=lambda item: (-item[0], item[1]))
+    if not hits:
+        print("No changed Japanese text runs found. Try --min-jp 2, or the game may use a custom .charset table.")
+        return
+    for jp_count, addr, key, text in hits[:args.limit]:
+        clean = text.replace("\n", "\\n").replace("\r", "")
+        print(f"0x{addr:08X}  {key:8}  ({jp_count:2d} jp)  {clean}")
+
+
+def cmd_verify(args):
+    # First load the script into Furoshiki
+    cmd_try(argparse.Namespace(script=args.script, force=args.force))
+    script_text = Path(args.script).read_text(encoding="utf-8", errors="replace")
+    no_layout_declared = "-- reader: no layout" in script_text
+
+    channel = Channel()
+    bit = button_bit(channel, args.button)
+    state_saved = False
+    if not args.skip_state:
+        try:
+            ask("state save 1", channel)
+            state_saved = True
+        except SystemExit:
+            pass
+
+    emitted = []
+    seen = None
+    layout_seen = False
+    issues = []
+    ctrl_re = re.compile(r"[\x00-\x08\x0b-\x1f\x7f]|%[A-Za-z]|\[ruby|<color|<size")
+
+    def sample():
+        nonlocal seen, layout_seen
+        now = status(channel)
+        if now.get("texts"):
+            for t in now["texts"]:
+                if t.get("characters"):
+                    layout_seen = True
+        current = now.get("current") or {}
+        text = current.get("text") or ""
+        key = (current.get("id"), text)
+        if text and key != seen:
+            seen = key
+            speaker = current.get("speaker") or ""
+            emitted.append((now.get("frame"), speaker, text))
+            if ctrl_re.search(text):
+                issues.append(f"Possible leaked control code in: {text!r}")
+            if len(emitted) >= 2 and emitted[-1][2] == emitted[-2][2]:
+                issues.append(f"Consecutive duplicate line emitted: {text!r}")
+
+    sample()
+    for _ in range(args.presses):
+        ask(f"pad {bit} 100", channel)
+        time.sleep(args.gap / 1000)
+        sample()
+
+    if state_saved:
+        try:
+            ask("state load 1", channel)
+            time.sleep(0.8)
+            before_reload = len(emitted)
+            ask(f"pad {bit} 100", channel)
+            time.sleep(args.gap / 1000)
+            sample()
+            if len(emitted) == before_reload:
+                issues.append("No new line emitted after savestate load + press (check state survival).")
+        except SystemExit:
+            pass
+
+    if not emitted:
+        issues.append("No lines were emitted during verification.")
+    if not layout_seen and not no_layout_declared:
+        issues.append("No reader.layout character cells observed (add reader.layout or `-- reader: no layout <why>`).")
+
+    print(f"\nVerified {len(emitted)} emitted line(s):")
+    for frame, speaker, text in emitted:
+        sp = f"{speaker}: " if speaker else ""
+        print(f"  [{frame}] {sp}{text}")
+    if issues:
+        print("\nWarnings / issues found:")
+        for msg in issues:
+            print(f"  - {msg}")
+        sys.exit(1)
+    print("\nOK: no issues detected.")
+
+
 def cmd_read(args):
     raw = bytes.fromhex(ask(f"mem-read {args.address} {args.length}"))
     base = int(args.address, 0)
@@ -489,6 +819,31 @@ def main():
     p.add_argument("--width", type=int, default=4, choices=(1, 2, 4))
     p.add_argument("--limit", type=int, default=200)
     p.set_defaults(run=cmd_changed)
+
+    p = sub.add_parser("hooks", help="Step 1: check Agent scripts and LunaHook for this game")
+    p.add_argument("query", nargs="?", help="game ID or title (defaults to running game)")
+    p.add_argument("--hooks-dir", help="path to Furoshiki's hooks folder")
+    p.add_argument("--draft", help="write a starter .lua file when a converted hook matches")
+    p.set_defaults(run=cmd_hooks)
+
+    p = sub.add_parser("text-diff", help="find changed Japanese text runs between two snaps")
+    p.add_argument("a")
+    p.add_argument("b")
+    p.add_argument("--same", help="a third snap B must equal (taken later, nothing changed)")
+    p.add_argument("--enc", help="encodings to try: sjis,utf8,utf16le,utf16be")
+    p.add_argument("--min-jp", type=int, default=3, help="minimum Japanese chars in a run")
+    p.add_argument("--limit", type=int, default=60)
+    p.add_argument("--video", action="store_true", help="include video memory")
+    p.set_defaults(run=cmd_text_diff)
+
+    p = sub.add_parser("verify", help="load script, advance lines, check for common bugs")
+    p.add_argument("script")
+    p.add_argument("--presses", type=int, default=6)
+    p.add_argument("--button", default="east")
+    p.add_argument("--gap", type=int, default=900, help="ms to wait after each press")
+    p.add_argument("--skip-state", action="store_true", help="skip savestate save/load check")
+    p.add_argument("--force", action="store_true")
+    p.set_defaults(run=cmd_verify)
 
     p = sub.add_parser("read", help="bytes of the game's memory")
     p.add_argument("address")

@@ -117,6 +117,22 @@ Under the hood, the agent drives Furoshiki via `tools/agent.py`, a zero-dependen
   images, or font data.
 - **Clean checks:** `python tools/check.py` must report 0 problems (also enforced by CI on every
   PR).
+- **Attribution:** When adapting hook addresses or decoding logic from an upstream project (such as
+  Agent or LunaHook), credit the upstream project and the original script author (`@author`) in the
+  script's header comments.
+
+## Credits
+
+This repository and Furoshiki's hook workflow build on the reverse-engineering work of the wider
+Japanese game-reading community:
+
+- **[0xDC00's Agent scripts](https://github.com/0xDC00/scripts)** and its individual script authors,
+  whose Frida-based emulator hooks provide hook addresses and decoding references across PSP, PS2,
+  PS Vita, 3DS, and Switch titles.
+- **[LunaTranslator / LunaHook](https://github.com/HIllya51/LunaTranslator)** (by HIllya51 and
+  contributors), whose emulator hook tables cover a wide range of Japanese console games.
+- **Every contributor and script author** listed in the individual script headers and git history
+  of this repository.
 
 ## Docs
 

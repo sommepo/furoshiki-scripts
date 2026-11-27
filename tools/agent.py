@@ -164,8 +164,10 @@ def cmd_start(args):
     if not program:
         raise SystemExit("Say where Furoshiki is first: python tools/agent.py setup PATH")
     game = Path(args.game).expanduser().resolve()
-    if not game.is_file():
+    if not game.exists():
         raise SystemExit(f"{game} is not there")
+    if game.is_dir() and (game / "eboot.bin").is_file():
+        game = game / "eboot.bin"
     env = dict(os.environ, READER_DESKTOP_CONTROL=channel_address())
     if args.home:
         env["READER_HOME_DIR"] = str(Path(args.home).expanduser().resolve())
@@ -425,6 +427,15 @@ def cmd_fetch_hooks(args):
     print("Done. Run: python tools/agent.py hooks [GAME_ID]")
 
 
+def parse_addr(val):
+    if isinstance(val, int):
+        return val
+    s = str(val or "0").strip()
+    if s.lower().startswith("0x"):
+        return int(s, 16)
+    return int(s, 16)
+
+
 def draft_lua_from_hook(entry, game_id, author=""):
     title = entry.get("name") or game_id
     source = entry.get("source") or "Agent"
@@ -444,7 +455,7 @@ def draft_lua_from_hook(entry, game_id, author=""):
         "reader.hooks{",
     ]
     for h in entry.get("hooks", []):
-        parts = [f"address = 0x{int(h.get('address', 0)):X}"]
+        parts = [f"address = 0x{parse_addr(h.get('address', 0)):X}"]
         if h.get("name"):
             parts.append(f"name = {json.dumps(h['name'])}")
         if h.get("read"):
@@ -512,7 +523,7 @@ def cmd_hooks(args):
                     if g.get("from"):
                         print(f"  source file: {g['from']}")
                     for h in g.get("hooks", []):
-                        print(f"  hook: addr=0x{int(h.get('address', 0)):X} from={h.get('from', '')} "
+                        print(f"  hook: addr=0x{parse_addr(h.get('address', 0)):X} from={h.get('from', '')} "
                               f"text={h.get('text', 'sjis')} relative={bool(h.get('relative'))} "
                               f"read={bool(h.get('read'))}")
             except (OSError, ValueError) as exc:

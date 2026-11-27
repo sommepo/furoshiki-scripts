@@ -16,9 +16,9 @@ Before searching memory from scratch, check whether the game shares an engine wi
 
 ## Chunsoft / Spike Chunsoft (Sound Novels, Danganronpa, Zero Escape)
 
-- **Reference scripts:** `games/ps1/kamaitachi-no-yoru/SLPS-01794.lua`, `games/ps1/otogirisou/SLPS-01645.lua`, `games/nds/nine-hours-nine-persons-nine-doors/BSKJ.lua`, `games/psp/428-shibuya/ULJS00219.lua`, `games/psp/danganronpa/NPJH50372.lua`, `games/switch/danganronpa-v3/01001AB0140F2000.lua`, `games/switch/the-hundred-line/0100D9D021782000.lua`
+- **Reference scripts:** `games/ps1/kamaitachi-no-yoru/SLPS-01794.lua`, `games/ps1/otogirisou/SLPS-01645.lua`, `games/nds/nine-hours-nine-persons-nine-doors/BSKJ.lua`, `games/psp/428-shibuya/ULJS00219.lua`, `games/psp/danganronpa/NPJH50372.lua`, `games/vita/virtues-last-reward/PCSG00020.lua`, `games/switch/danganronpa-v3/01001AB0140F2000.lua`, `games/switch/the-hundred-line/0100D9D021782000.lua`
 - **Typical encoding:** Shift-JIS on PS1/DS/PSP; UTF-8 or UTF-16LE on Vita/Switch.
-- **What to look for:** Danganronpa titles separate the active dialogue buffer from speaker IDs (a small integer indexing a character-name table) and use `<CLT N>` colour tags that should be stripped. Sound novels often keep a full-page text buffer; track the page/cursor index so only newly revealed text is emitted.
+- **What to look for:** Danganronpa titles separate the active dialogue buffer from speaker IDs (a small integer indexing a character-name table) and use `<CLT N>` colour tags that should be stripped. Sound novels often keep a full-page text buffer; track the page/cursor index so only newly revealed text is emitted. Zero Escape Vita (`PCSG00020`) uses UTF-8 with `<N>` line breaks and `<K>`/`<P>`/`<F:...>` formatting tags (strip `<[^>]+>` after converting `<N>`), with a static struct holding the UTF-8 speaker pointer, box visibility flag, and dialogue box pixel rect.
 
 ## Atlus (Shin Megami Tensei, Persona)
 

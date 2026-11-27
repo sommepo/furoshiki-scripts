@@ -16,5 +16,5 @@ Keep this file scalable:
 ## Layout and Lua API gotchas
 
 - **Leading fullwidth indents and `\n` wraps:** When a game inserts literal `\n` wrap markers and a leading fullwidth space (`　`, Shift-JIS `0x81 0x40`), strip the leading `　` from the emitted text while still advancing `x` by one cell on the first row. That keeps dictionary lookups and Anki cards clean while placing every overlay cell directly on its character.
-- **Exact Lua API names:** Use `mem.cstr(addr, max)` (not `mem.cstring`) and `text.sjis(...)` / `text.utf8(...)` / `text.utf16le(...)` (not `text.decode`). Full reference: [script-api.md](script-api.md).
+- **Exact Lua API names:** Use `mem.cstr(addr, max)` (not `mem.cstring`), `text.sjis(...)` / `text.utf8(...)` / `text.utf16le(...)` (not `text.decode`), and `reader.hook(addr, function(regs) ... end)` (registers are passed via the `regs` parameter; there is no global `cpu`). Full reference: [script-api.md](script-api.md).
 - **Skip `agent.py verify` save-state failures on cores without save states:** `verify` accepts `--gap` in either seconds (`1.5`) or milliseconds (`1500`), and skips save-state testing automatically on PS Vita.

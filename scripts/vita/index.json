@@ -3,6 +3,21 @@
   "system": "vita",
   "scripts": [
     {
+      "id": "PCSG00249",
+      "title": "WHITE ALBUM 2 幸せの向こう側 (White Album 2)",
+      "reads": "Dialogue (ADV and NVL), speakers, furigana, and choices",
+      "version": "PCSG00249, 1.00",
+      "api": 2,
+      "file": "PCSG00249.lua",
+      "size": 16028,
+      "sha256": "738defc40474e0437215a332a587570a167f31508ccb889b24584b18141188ad",
+      "names": {
+        "file": "names-white-album-2.zip",
+        "size": 8702,
+        "sha256": "f61b955cc4b4d3811ec6ff4302851d7362f91d42b1e4e2d4b1ee27d35a2536f2"
+      }
+    },
+    {
       "id": "PCSG00488",
       "title": "英雄伝説 空の軌跡 FC Evolution (The Legend of Heroes: Trails in the Sky, Vita)",
       "reads": "Story and field dialogue, speakers, and furigana",

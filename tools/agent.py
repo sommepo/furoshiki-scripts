@@ -168,6 +168,17 @@ def cmd_start(args):
         raise SystemExit(f"{game} is not there")
     if game.is_dir() and (game / "eboot.bin").is_file():
         game = game / "eboot.bin"
+    if game.name.lower() == "eboot.bin" or game.suffix.lower() == ".vpk":
+        data_root = Path(args.home).expanduser().resolve() if args.home else (
+            Path(os.environ["READER_HOME_DIR"]).expanduser().resolve() if os.environ.get("READER_HOME_DIR") else
+            (Path(os.environ["LOCALAPPDATA"]) / "Furoshiki" if WINDOWS and os.environ.get("LOCALAPPDATA") else
+             Path.home() / ".local" / "share" / "Furoshiki")
+        )
+        vita_pup = data_root / "program" / "consoles" / "psvita" / "system" / "PSP2UPDAT.PUP"
+        vita_vs0 = data_root / "program" / "consoles" / "psvita" / "data" / "fs" / "vs0"
+        if not vita_pup.is_file() and not vita_vs0.is_dir():
+            print(f"Warning: PS Vita firmware not found at {vita_pup} (and no installed vs0/ in {vita_vs0.parent}). "
+                  "Most Vita games will fail to boot without PSP2UPDAT.PUP.", file=sys.stderr)
     env = dict(os.environ, READER_DESKTOP_CONTROL=channel_address())
     if args.home:
         env["READER_HOME_DIR"] = str(Path(args.home).expanduser().resolve())
@@ -436,10 +447,19 @@ def parse_addr(val):
     return int(s, 16)
 
 
+def is_vita_entry(entry, game_id=""):
+    c = (entry.get("console") or "").lower()
+    if "vita" in c:
+        return True
+    ids = list(entry.get("ids") or []) + ([game_id] if game_id else [])
+    return any(re.match(r"^PCS[A-Z]\d{5}$", str(i).upper()) for i in ids)
+
+
 def draft_lua_from_hook(entry, game_id, author=""):
     title = entry.get("name") or game_id
     source = entry.get("source") or "Agent"
     from_file = entry.get("from") or ""
+    vita = is_vita_entry(entry, game_id)
     credit = f"Adapted from {source}"
     if from_file:
         credit += f" ({from_file})"
@@ -451,11 +471,22 @@ def draft_lua_from_hook(entry, game_id, author=""):
         f"-- reader: version {entry.get('version') or '1.0'}",
         f"-- {credit}",
         "-- TODO: verify build_id, speakers, choices, and reader.layout in-game before submitting.",
+        "-- Note: Lua API uses mem.cstr(addr, max) and text.sjis(...) / text.utf8(...) / text.utf16le(...).",
+    ]
+    if vita:
+        lines.append("-- Note (PS Vita): LunaHook 0x80xxxxxx addresses are rebased to reader.base + offset + 1 (Thumb).")
+        lines.append("-- If a Vita hook does not fire in Vita3K, pivot to `agent.py text-diff` and a hookless (`-- reader: no hooks`) frame read.")
+    lines += [
         "",
         "reader.hooks{",
     ]
     for h in entry.get("hooks", []):
-        parts = [f"address = 0x{parse_addr(h.get('address', 0)):X}"]
+        addr = parse_addr(h.get("address", 0))
+        if vita and 0x80000000 <= addr < 0x81000000:
+            off = (addr - 0x80000000) | 1
+            parts = [f"address = reader.base + 0x{off:X}"]
+        else:
+            parts = [f"address = 0x{addr:X}"]
         if h.get("name"):
             parts.append(f"name = {json.dumps(h['name'])}")
         if h.get("read"):
@@ -654,13 +685,18 @@ def cmd_verify(args):
 
     channel = Channel()
     bit = button_bit(channel, args.button)
+    gap_sec = args.gap if args.gap < 30 else args.gap / 1000.0
     state_saved = False
     if not args.skip_state:
-        try:
-            ask("state save 1", channel)
-            state_saved = True
-        except SystemExit:
-            pass
+        now0 = status(channel)
+        if now0.get("console") == "PlayStation Vita":
+            print("Note: skipping savestate check (PlayStation Vita does not support save states).")
+        else:
+            try:
+                ask("state save 1", channel)
+                state_saved = True
+            except SystemExit:
+                print("Note: savestate check skipped (not supported by this core).")
 
     emitted = []
     seen = None
@@ -690,7 +726,7 @@ def cmd_verify(args):
     sample()
     for _ in range(args.presses):
         ask(f"pad {bit} 100", channel)
-        time.sleep(args.gap / 1000)
+        time.sleep(gap_sec)
         sample()
 
     if state_saved:
@@ -699,7 +735,7 @@ def cmd_verify(args):
             time.sleep(0.8)
             before_reload = len(emitted)
             ask(f"pad {bit} 100", channel)
-            time.sleep(args.gap / 1000)
+            time.sleep(gap_sec)
             sample()
             if len(emitted) == before_reload:
                 issues.append("No new line emitted after savestate load + press (check state survival).")
@@ -892,7 +928,7 @@ def main():
     p.add_argument("script")
     p.add_argument("--presses", type=int, default=6)
     p.add_argument("--button", default="east")
-    p.add_argument("--gap", type=int, default=900, help="ms to wait after each press")
+    p.add_argument("--gap", type=float, default=900, help="wait after each press (ms if >= 30, or seconds if < 30)")
     p.add_argument("--skip-state", action="store_true", help="skip savestate save/load check")
     p.add_argument("--force", action="store_true")
     p.set_defaults(run=cmd_verify)

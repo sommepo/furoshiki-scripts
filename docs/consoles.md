@@ -41,9 +41,18 @@ PlayStation and PS2 folders have 25 examples.
 - **PS2, Dreamcast**: no hooks, so everything is read from memory each frame: find the
   message buffer, a value that says how much is shown or whether the window is open, and
   where the box is.
-- **3DS, DS, Vita**: games are ARM code. A hook on the function that sets a message (its
+- **3DS, DS**: games are ARM code. A hook on the function that sets a message (its
   argument a pointer to the text, often UTF-16) is the usual way; bind it to the build by
   checking a few instruction words, as the 3DS scripts do.
+- **PS Vita**: games are ARM/Thumb code loaded at `reader.base` (with `reader.module("data")`
+  for `PT_LOAD[1]`). Launch a dumped folder by passing the folder or its `eboot.bin` to
+  `agent.py start`; most titles require `PSP2UPDAT.PUP` firmware installed in Furoshiki.
+  Nearly all Vita code is Thumb, so code hooks use odd addresses (`reader.base + offset + 1`),
+  and LunaHook `vita3k_1.cpp` `0x80xxxxxx` addresses must be rebased to `reader.base`. If a
+  Vita hook does not fire in Vita3K, pivot quickly to `agent.py text-diff` and a hookless
+  (`-- reader: no hooks`) frame read from `reader.module("data")`, which is fast and also works
+  on real hardware. Vita3K does not support save states (`agent.py verify` skips the save-state
+  check automatically).
 - **Switch**: games are ARM64 code loaded at `reader.base`. Many read memory from
   `reader.on_frame` and hook nothing (`-- reader: no hooks`); where a hook is used, the object
   is usually in `x0` and its arguments from `x1`. A game built on an engine (Unity, RE Engine,

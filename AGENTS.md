@@ -77,9 +77,10 @@ its hook address, register, and control-code logic saves most of the reverse-eng
 **Whenever a script is adapted from Agent or LunaHook, preserve the source project and the
 original script's `@author` credit in the top comment of the `.lua` file.**
 
-If no Agent or LunaHook entry matches, check [docs/engines.md](docs/engines.md) to see whether the
-game's maker or engine (KID/MAGES., Prototype/RealLive, Atlus, Spike Chunsoft, Capcom, Falcom,
-Square Enix, Unity) is already documented with reference scripts in `games/`.
+If no Agent or LunaHook entry matches (or if a Vita hook does not fire in Vita3K), check
+[docs/engines.md](docs/engines.md), [docs/consoles.md](docs/consoles.md), and
+[docs/findings.md](docs/findings.md) before searching memory from scratch: they collect reusable
+patterns for known engines, console quirks, and fast `text-diff` / pointer-finding workflows.
 
 ## 2. Reach the game's text
 
@@ -217,6 +218,21 @@ Fork on GitHub and add it as a remote. Push the branch there, then
 request's template has. Change nothing in `scripts/`: it is made from `games/` when the pull request is
 merged, and CI refuses a pull request that edits it.
 
+### Share reusable findings
+
+Before finishing, pause and ask whether you learned anything that will save time on **future** games.
+If so, donate a short (2 to 4 line) entry to the right doc file rather than bloating `AGENTS.md`:
+
+- **Per-engine patterns** (text encoding, control codes, speaker tables, buffer layouts) go in
+  [docs/engines.md](docs/engines.md), with your script added to that engine's reference list.
+- **Per-console quirks** (launch/firmware notes, register conventions, hook vs frame-read tradeoffs)
+  go in [docs/consoles.md](docs/consoles.md).
+- **General workflow tips and common traps** go in [docs/findings.md](docs/findings.md).
+
+Keep donated notes concise and general (never put game-specific addresses into `docs/`). If you hit
+a bug or paper cut in `tools/agent.py` or an emulator core, mention it in your report or PR
+description so the tooling keeps improving.
+
 ## Where things are
 
 | | |
@@ -224,8 +240,9 @@ merged, and CI refuses a pull request that edits it.
 | `games/<console>/<game>/<ID>.lua` | The scripts, a folder per game (with its names dictionary, and a `README.md` of notes if it has one) |
 | `scripts/<console>/` | Made from `games/` by CI: what Furoshiki installs from, with each console's `index.json`. Never edited by hand |
 | `docs/script-api.md` | Everything a script can call |
-| `docs/consoles.md` | Each console's processor, screen space and usual encodings |
+| `docs/consoles.md` | Each console's processor, screen space, quirks and usual encodings |
 | `docs/engines.md` | Common VN/JRPG engines, control codes and reference scripts |
+| `docs/findings.md` | Reusable cross-console workflow tips, memory-search techniques and traps |
 | `tools/agent.py` | Drives Furoshiki while a script is written (`--help`) |
 | `tools/check.py` | What CI checks on every pull request |
 | `tools/build-lists.py` | Writes the lists (CI, after a merge) |

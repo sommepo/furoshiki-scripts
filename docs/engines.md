@@ -2,11 +2,11 @@
 
 Before searching memory from scratch, check whether the game shares an engine with a title already in `games/`. Games on the same engine usually share text encoding, control codes, speaker-name storage, and layout behaviour, even across different consoles. Remember: never copy addresses from another build; use the reference scripts only to understand the data layout and decoding logic.
 
-## KID / 5pb. / MAGES. (Infinity, Science Adventure)
+## KID / 5pb. / MAGES. (Infinity, Science Adventure, Navel Vita ports)
 
-- **Reference scripts:** `games/ps1/memories-off/SLPS-02296.lua`, `games/ps2/never7/SLPS-25256.lua`, `games/ps2/ever17/SLPM-65421.lua`, `games/ps2/remember-11/SLPM-65550.lua`, `games/psp/steins-gate/ULJM05887.lua`, `games/psp/chaos-head-love-chu-chu/ULJM05821.lua`, `games/psp/dunamis15/ULJM06119.lua`, `games/switch/steins-gate/0100F160092D2000.lua`
-- **Typical encoding:** Shift-JIS on PS1/PS2/PSP; UTF-8 or custom glyph-index streams on newer MAGES. Switch ports.
-- **What to look for:** A fixed dialogue buffer or script pointer plus a visible-character counter and a window-open flag. Older KID titles use `%N` / `%P` / `%K` or `0x01`-prefixed control codes for line breaks, pauses, and ruby (`[base/ruby]` or `%R`). Speakers are often stored in a separate small buffer or prefixed with `「` / `【Name】`.
+- **Reference scripts:** `games/ps1/memories-off/SLPS-02296.lua`, `games/ps2/never7/SLPS-25256.lua`, `games/ps2/ever17/SLPM-65421.lua`, `games/ps2/remember-11/SLPM-65550.lua`, `games/psp/steins-gate/ULJM05887.lua`, `games/psp/chaos-head-love-chu-chu/ULJM05821.lua`, `games/psp/dunamis15/ULJM06119.lua`, `games/vita/oretachi-ni-tsubasa-wa-nai/PCSG00299.lua`, `games/switch/steins-gate/0100F160092D2000.lua`
+- **Typical encoding:** Shift-JIS on PS1/PS2/PSP/Vita; UTF-8 or custom glyph-index streams on newer MAGES. Switch ports.
+- **What to look for:** A fixed dialogue buffer or script pointer plus a visible-character counter and a window-open flag. Older KID titles use `%N` / `%P` / `%K` or `0x01`-prefixed control codes for line breaks, pauses, and ruby (`[base/ruby]` or `%R`). Speakers are often stored in a separate small buffer or prefixed with `「` / `【Name】`. On 5pb./MAGES. PS Vita ports such as `PCSG00299`, the live message struct (state, speaker ID, and Shift-JIS text with literal `\n` wrap markers and leading `　` indent) is held in a fixed-size heap buffer reachable from a static task vector in `reader.module("data")`, with speakers indexed into a fixed-stride (`0x50`) Shift-JIS name table in `data`.
 
 ## Prototype / Visual Arts (RealLive, Siglus, LucaSystem)
 

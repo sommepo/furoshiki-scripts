@@ -67,6 +67,9 @@ Before searching memory from scratch, always check whether 0xDC00's **Agent** sc
 python tools/agent.py hooks
 ```
 
+If `hooks` says no local hooks folder is present yet, fetch them once into `.agent/hooks/` (ignored
+by Git) with `python tools/agent.py fetch-hooks`, then run `hooks` again.
+
 If a converted hook matches, `--draft games/<console>/<game>/<ID>.lua` writes a starter Lua file
 you can load immediately with `try`, then refine for build checks, speakers, choices, and
 `reader.layout`. Even when an Agent `.js` script is too custom for automatic conversion, reading

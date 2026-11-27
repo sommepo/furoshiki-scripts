@@ -31,6 +31,7 @@ What it keeps between runs (where Furoshiki is, its process, the snaps) is in `.
 the top of this repository, which Git ignores. Nothing here goes on the network.
 """
 import argparse
+import io
 import json
 import os
 import re
@@ -40,6 +41,8 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.request
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -369,6 +372,7 @@ def find_hooks_dirs(explicit=None):
     candidates = []
     if explicit:
         candidates.append(Path(explicit).expanduser().resolve())
+    candidates.append(STATE / "hooks")
     try:
         profiles = Path(ask("scripts-folder", Channel(timeout=1.5)))
         # .../program/reader/profiles -> .../program/hooks
@@ -386,6 +390,39 @@ def find_hooks_dirs(explicit=None):
         if p.is_dir() and p not in seen:
             seen.append(p)
     return seen
+
+
+def cmd_fetch_hooks(args):
+    dest = Path(args.dir).expanduser().resolve() if args.dir else (STATE / "hooks")
+    scripts_dir = dest / "scripts"
+    luna_dir = dest / "luna-tables"
+    scripts_dir.mkdir(parents=True, exist_ok=True)
+    luna_dir.mkdir(parents=True, exist_ok=True)
+
+    print("Downloading 0xDC00/scripts (Agent)...", flush=True)
+    req = urllib.request.Request(
+        "https://github.com/0xDC00/scripts/archive/refs/heads/main.zip",
+        headers={"User-Agent": "Furoshiki-Agent/1.0"},
+    )
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        zf = zipfile.ZipFile(io.BytesIO(resp.read()))
+        count = 0
+        for info in zf.infolist():
+            if info.is_dir() or not info.filename.endswith(".js"):
+                continue
+            name = Path(info.filename).name
+            (scripts_dir / name).write_bytes(zf.read(info))
+            count += 1
+    print(f"  saved {count} Agent .js scripts to {scripts_dir}")
+
+    print("Downloading LunaTranslator/LunaHook emulator tables...", flush=True)
+    for fname in ("PCSX2_1.cpp", "ppsspp_1.cpp", "vita3k_1.cpp", "yuzu_1.cpp"):
+        url = f"https://raw.githubusercontent.com/HIllya51/LunaTranslator/main/src/NativeImpl/LunaHook/LunaHook/emulators/{fname}"
+        req = urllib.request.Request(url, headers={"User-Agent": "Furoshiki-Agent/1.0"})
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            (luna_dir / fname).write_bytes(resp.read())
+        print(f"  saved {luna_dir / fname}")
+    print("Done. Run: python tools/agent.py hooks [GAME_ID]")
 
 
 def draft_lua_from_hook(entry, game_id, author=""):
@@ -444,8 +481,8 @@ def cmd_hooks(args):
     q_low = query.lower()
     dirs = find_hooks_dirs(args.hooks_dir)
     if not dirs:
-        print("No local Furoshiki hooks folder found. Fetch Agent scripts and LunaHook tables in "
-              "Furoshiki (or pass --hooks-dir PATH) to search them automatically.")
+        print("No local hooks folder found. Run `python tools/agent.py fetch-hooks` once to download "
+              "0xDC00's Agent scripts and LunaHook emulator tables into .agent/hooks/ (or pass --hooks-dir PATH).")
         return
 
     found_any = False
@@ -819,6 +856,10 @@ def main():
     p.add_argument("--width", type=int, default=4, choices=(1, 2, 4))
     p.add_argument("--limit", type=int, default=200)
     p.set_defaults(run=cmd_changed)
+
+    p = sub.add_parser("fetch-hooks", help="download 0xDC00 Agent scripts and LunaHook tables into .agent/hooks/")
+    p.add_argument("--dir", help="destination folder (default: .agent/hooks)")
+    p.set_defaults(run=cmd_fetch_hooks)
 
     p = sub.add_parser("hooks", help="Step 1: check Agent scripts and LunaHook for this game")
     p.add_argument("query", nargs="?", help="game ID or title (defaults to running game)")

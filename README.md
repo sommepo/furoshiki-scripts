@@ -101,7 +101,9 @@ release.
    everyone can install the script from inside Furoshiki.
 
 Under the hood, the agent drives Furoshiki via `tools/agent.py`, a zero-dependency Python CLI
-(`python tools/agent.py --help`).
+(`python tools/agent.py --help`). On first run it can fetch 0xDC00's Agent scripts and LunaHook's
+emulator tables locally with `python tools/agent.py fetch-hooks` (stored in `.agent/hooks/`, ignored
+by Git) so `python tools/agent.py hooks` checks existing hook references before searching memory.
 
 > **Custom fonts:** Games that number the characters of a font of their own instead of using
 > Shift-JIS or Unicode need a character table beside their script (`<ID>.charset`): a text file

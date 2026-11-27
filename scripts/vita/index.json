@@ -3,6 +3,16 @@
   "system": "vita",
   "scripts": [
     {
+      "id": "PCSG00020",
+      "title": "極限脱出ADV 善人シボウデス (Zero Escape: Virtue's Last Reward)",
+      "reads": "Dialogue and speakers",
+      "version": "PCSG00020, 1.00",
+      "api": 2,
+      "file": "PCSG00020.lua",
+      "size": 4218,
+      "sha256": "7b269f547c1716640cf4a98f0a01a326caf689913bf0bd9cfdbeebfd0223e589"
+    },
+    {
       "id": "PCSG00249",
       "title": "WHITE ALBUM 2 幸せの向こう側 (White Album 2)",
       "reads": "Dialogue (ADV and NVL), speakers, furigana, and choices",
@@ -16,6 +26,16 @@
         "size": 8702,
         "sha256": "f61b955cc4b4d3811ec6ff4302851d7362f91d42b1e4e2d4b1ee27d35a2536f2"
       }
+    },
+    {
+      "id": "PCSG00299",
+      "title": "俺たちに翼はない (Oretachi ni Tsubasa wa Nai)",
+      "reads": "Dialogue and speakers",
+      "version": "PCSG00299, 1.00",
+      "api": 2,
+      "file": "PCSG00299.lua",
+      "size": 7077,
+      "sha256": "60532646db8f01cd630aa1951ada01ad8e1bfabee76b0d5554648f262ba79865"
     },
     {
       "id": "PCSG00488",
